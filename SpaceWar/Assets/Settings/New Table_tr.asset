@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: New Table_tr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: 9bf0e7364bdb948459e3ce26a58718f4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 27490025472
+    m_Localized: AYARLAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 576823109386240
+    m_Localized: SKOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577967743336448
+    m_Localized: "Sagl\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579099102314496
+    m_Localized: "GEM\u0130 KARTLARI"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 580284232269824
+    m_Localized: "Gemin i\xE7in bir kart se\xE7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 581212544991232
+    m_Localized: DEVAM ET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 581900188549120
+    m_Localized: "\xC7IKIS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582051888136192
+    m_Localized: "OYUN B\u0130TT\u0130"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582722075000832
+    m_Localized: "ANA MEN\xDC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582917437292544
+    m_Localized: "\xD6ld\xFCr\xFClen:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583489762656256
+    m_Localized: "Alt\u0131n Kazanc\u0131:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 584872809234432
+    m_Localized: 'Skor:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 585684805517312
+    m_Localized: "TEBR\u0130KLER!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 585867391959040
+    m_Localized: "Yeni Harita A\xE7\u0131ld\u0131!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 587503896133632
+    m_Localized: KAPAT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 589236617641984
+    m_Localized: "\u0130STASYON"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 589909635661824
+    m_Localized: "HAR\u0130TA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 590558511267840
+    m_Localized: "BA\u015ELA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593390039760896
+    m_Localized: 'ALTIN:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714623792218112
+    m_Localized: "Sat\u0131n Al"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714692322951168
+    m_Localized: "Se\xE7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714765895237632
+    m_Localized: "Se\xE7ildi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859173131157504
+    m_Localized: EVET
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859196703145984
+    m_Localized: HAYIR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859406372208640
+    m_Localized: "Kay\u0131tl\u0131 olan program\u0131 s\u0131f\u0131rlamak istedi\u011Finizden
+      emin misiniz?"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

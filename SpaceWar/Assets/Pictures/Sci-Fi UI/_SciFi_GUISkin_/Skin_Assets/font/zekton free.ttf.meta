@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 8297a2bf97dbbba468bd2518d003a876
+AssetOrigin:
+  serializedVersion: 1
+  productId: 15606
+  packageName: Sci-fi GUI skin
+  packageVersion: 1.2
+  assetPath: Assets/Sci-Fi UI/_SciFi_GUISkin_/Skin_Assets/font/zekton free.ttf
+  uploadId: 217544
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 50
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zekton Free
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

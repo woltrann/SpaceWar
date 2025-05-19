@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Card Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 91aad0d90d8483b4295fad33cad8bc5d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 114421170176
+    m_Localized: Increase movement speed +2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81915314176
+    m_Localized: Increase attack speed +2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104619081728
+    m_Localized: Increase health +5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 124361670656
+    m_Localized: Increase magnet area +1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170373185536
+    m_Localized: Increase attack power +3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 182603776000
+    m_Localized: Increase attack range +3
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

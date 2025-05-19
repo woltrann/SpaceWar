@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: New Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: New Table
+  m_TableCollectionNameGuidString: 9bf0e7364bdb948459e3ce26a58718f4
+  m_Entries:
+  - m_Id: 27490025472
+    m_Key: ayarlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 576823109386240
+    m_Key: skor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577967743336448
+    m_Key: "sa\u011Fl\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579099102314496
+    m_Key: "gemi kartlar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 580284232269824
+    m_Key: "par\xE7a se\xE7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 581212544991232
+    m_Key: devam et
+    m_Metadata:
+      m_Items: []
+  - m_Id: 581900188549120
+    m_Key: "\xE7\u0131k\u0131\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582051888136192
+    m_Key: oyun bitti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582722075000832
+    m_Key: "ana men\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582917437292544
+    m_Key: "\xD6l\xFCrme say\u0131s\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583489762656256
+    m_Key: "alt\u0131n kazanc\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 584872809234432
+    m_Key: 'Skor:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 585684805517312
+    m_Key: tebrikler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 585867391959040
+    m_Key: yeni harita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 587503896133632
+    m_Key: kapat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 589236617641984
+    m_Key: istasyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 589909635661824
+    m_Key: harita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 590558511267840
+    m_Key: "ba\u015Fla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593390039760896
+    m_Key: "alt\u0131n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714623792218112
+    m_Key: "sat\u0131n al"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714692322951168
+    m_Key: "se\xE7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714765895237632
+    m_Key: "se\xE7ildi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859173131157504
+    m_Key: evet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859196703145984
+    m_Key: "hay\u0131r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859406372208640
+    m_Key: "oyun s\u0131f\u0131rlama"
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 9219625051514470697
+  references:
+    version: 2
+    RefIds:
+    - rid: 9219625051514470697
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1746560218878
