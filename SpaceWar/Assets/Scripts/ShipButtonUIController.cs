@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using System.Collections.Generic;
+using System;
 
 public class ShipButtonUIController : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class ShipButtonUIController : MonoBehaviour
             upgradeButton.gameObject.SetActive(true);
             upgradeButton.onClick.RemoveAllListeners();
 
-            if (currentShip.shipLevel < 50)
+            if (currentShip.shipLevel < currentShip.shipmaxLevel)
             {
                 upgradeButtonText.text = $"({currentShip.GetUpgradeCost()} G)";
                 upgradeButton.onClick.AddListener(() => UpgradeShip(currentShip));
@@ -103,10 +104,10 @@ public class ShipButtonUIController : MonoBehaviour
             PlayerPrefs.SetFloat("TotalGold", GameManager.Instance.totalGold);
 
             upgradeButtonText.text =cost.ToString();
-            if (ship.shipLevel < 50) ship.shipLevel++;
+            if (ship.shipLevel < ship.shipmaxLevel) ship.shipLevel++;
             if (ship.attackPower < 100) ship.attackPower += 2f;
             if (ship.attackSpeed < 50) ship.attackSpeed += 2f; // Örnek artýþ
-            if (ship.moveSpeed < 25) ship.moveSpeed += 1f;
+            if (ship.moveSpeed < 20) ship.moveSpeed += 0.5f;
             if (ship.health < 200) ship.health += 5f;
             if (ship.shield < 200) ship.shield += 5f; // Ornek
             if (ship.attackRange < 60) ship.attackRange += 1f;
@@ -208,6 +209,27 @@ public class ShipButtonUIController : MonoBehaviour
         PlayerPrefs.DeleteKey("Ship5");
         PlayerPrefs.SetInt("SelectedShipIndex", 0);
         PlayerPrefs.Save();
+    }
+
+
+//Dil deðiþiminde buton güncellemesi
+    void OnEnable()
+    {
+        LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+    }
+    private void OnLocaleChanged(Locale locale)
+    {
+        if (currentShip != null)
+            UpdateButton(currentShip);
+    }
+    void OnDisable()
+    {
+        LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+    }
+    void OnLocaleChanged(UnityEngine.Localization.Locale newLocale, UnityEngine.Localization.Locale previousLocale)
+    {
+        if (currentShip != null)
+            UpdateButton(currentShip);
     }
 
 

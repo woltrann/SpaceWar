@@ -118,6 +118,18 @@ MonoBehaviour:
     m_Localized: Are you sure you want to reset the saved progress?
     m_Metadata:
       m_Items: []
+  - m_Id: 4833827298508800
+    m_Localized: SKILLS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875737216090112
+    m_Localized: HANGAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4930283904729088
+    m_Localized: Vibration
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

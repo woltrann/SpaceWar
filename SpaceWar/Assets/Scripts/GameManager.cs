@@ -12,6 +12,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    private ShipDetails currentShip;
 
     public List<ShipDetails> allShips; // Inspector'dan atarsın, sırayla 0-5 gemiler
     public List<ShipDetails> ownedShips = new List<ShipDetails>();
@@ -26,6 +27,10 @@ public class GameManager : MonoBehaviour
 
     public Button Turkish;
     public Button English;
+    public Button Korean;
+    public Button Arabic;
+    public Button Spanish;
+    public Button Chinese;
 
     private int score = 0;
     public Text scoreText;
@@ -40,6 +45,8 @@ public class GameManager : MonoBehaviour
     public static int killed = 0;
 
     [Header("UI")]
+    public Toggle vibrationToggle;
+    public int vibrateValue = 100;
     public Slider expSlider;
     public Text levelText;
     public GameObject LevelUpPanel;
@@ -87,8 +94,16 @@ public class GameManager : MonoBehaviour
         totalGold = PlayerPrefs.GetFloat("TotalGold", 0f);
         TotalGoldText.text = totalGold.ToString();
 
+        vibrateValue = PlayerPrefs.GetInt("VibrationValue", 100);
+        vibrationToggle.isOn = PlayerPrefs.GetInt("VibrationEnabled", 1) == 1;
+        vibrationToggle.onValueChanged.AddListener(OnVibrationToggleChanged);        // Değişiklik olunca fonksiyon çağrılır
+
         Turkish.onClick.AddListener(() => SetLanguage("tr")); 
         English.onClick.AddListener(() => SetLanguage("en"));
+        Korean.onClick.AddListener(() => SetLanguage("ko-KR"));
+        Arabic.onClick.AddListener(() => SetLanguage("ar"));
+        Spanish.onClick.AddListener(() => SetLanguage("es"));
+        Chinese.onClick.AddListener(() => SetLanguage("zh"));
         PlayerSmoothFollow.fight = false;
 
         TotalGoldText.text = totalGold.ToString();
@@ -263,7 +278,7 @@ public class GameManager : MonoBehaviour
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(localeCode);
         PlayerPrefs.SetString("Language", localeCode);
-        PlayerPrefs.Save();
+        PlayerPrefs.Save();       
     }
     void LoadLanguage()
     {
@@ -287,7 +302,17 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
         PlayerPrefs.Save();
     }
+    void OnVibrationToggleChanged(bool isOn)
+    {
+        vibrateValue = isOn ? 100 : 0;
+        Debug.Log("vibration value: "+ vibrateValue);
+        // Ayarı kaydet
+        PlayerPrefs.SetInt("VibrationEnabled", isOn ? 1 : 0);
+        PlayerPrefs.SetInt("VibrationValue", vibrateValue);
+        PlayerPrefs.Save();
 
+        
+    }
     public void LoadOwnedShips()
     {
         ownedShips.Clear();

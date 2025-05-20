@@ -115,6 +115,18 @@ MonoBehaviour:
     m_Key: "oyun s\u0131f\u0131rlama"
     m_Metadata:
       m_Items: []
+  - m_Id: 4833827298508800
+    m_Key: yetenekler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875737216090112
+    m_Key: hangar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4930283904729088
+    m_Key: "titre\u015Fim"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

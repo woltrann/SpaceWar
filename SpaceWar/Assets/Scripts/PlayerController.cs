@@ -8,6 +8,7 @@ public class PlayerSmoothFollow : MonoBehaviour
 {
     public ShipDetails stats;
     private ShipDetails runtimeStats;
+    public static PlayerSmoothFollow Instance;
 
     public static bool fight=false;
 
@@ -47,8 +48,13 @@ public class PlayerSmoothFollow : MonoBehaviour
     private float lockOnTurnSpeed = 100f; // Düşmana kilitleninceki dönüş hızı
     private Transform nearestEnemy;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
+
         player = GameObject.FindGameObjectWithTag("Player");
         planeReference = GameObject.FindGameObjectWithTag("Plane");
         GameObject initialPlane = GameObject.FindGameObjectWithTag("Plane");
@@ -108,6 +114,7 @@ public class PlayerSmoothFollow : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        Vibration.Vibrate(GameManager.Instance.vibrateValue);
         Health -= amount;
         Health = Mathf.Clamp(Health, 0, runtimeStats.health);
         healthSlider.value = Health;
@@ -119,6 +126,8 @@ public class PlayerSmoothFollow : MonoBehaviour
     }
     private void Die()
     {
+        Vibration.Vibrate(GameManager.Instance.vibrateValue *5);
+
         transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
 
         if (hitParticle != null)
@@ -137,51 +146,12 @@ public class PlayerSmoothFollow : MonoBehaviour
         GameManager.Instance.GameOver();
     }
 
-    private void CalculateLimits()
-    {
-        float distanceFromCamera = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
-
-        Vector3 bottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, distanceFromCamera));
-        Vector3 topRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, distanceFromCamera));
-
-    }
-    private void FindNearestEnemyAndLockOn()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        float closestDistance = Mathf.Infinity;
-        Transform closestEnemy = null;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (distance < closestDistance && distance <= lockOnRange)
-            {
-                closestDistance = distance;
-                closestEnemy = enemy.transform;
-            }
-        }
-
-        if (closestEnemy != null)
-        {
-            nearestEnemy = closestEnemy;
-
-            // Hızlı dönüş için lockOnTurnSpeed kullan
-            Vector3 direction = (nearestEnemy.position - transform.position).normalized;
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lockOnTurnSpeed * Time.deltaTime);
-        }
-        else
-        {
-            nearestEnemy = null;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if ( other.CompareTag("Enemy"))
         {
             transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
+            Vibration.Vibrate(GameManager.Instance.vibrateValue * 5);
 
             if (hitParticle != null)
             {
@@ -198,6 +168,7 @@ public class PlayerSmoothFollow : MonoBehaviour
             GameManager.Instance.GameOver();
         }
     }
+
     public void ApplyStats(ShipDetails stats)
     {
         Health = stats.health;
@@ -230,8 +201,8 @@ public class PlayerSmoothFollow : MonoBehaviour
     public void ApplyCard(CardDetails card)
     {
         // Sağlık
-        Health += card.cardHealth;
-        Health = Mathf.Clamp(Health, 0, runtimeStats.health + card.cardHealth);
+        Health += card.cardHealth*Health*0.1f;
+        Health = Mathf.Clamp(Health, 0, runtimeStats.health * 1.5f); // mesela %50 artışa göre limit koy
         healthSlider.maxValue = runtimeStats.health;
         healthSlider.value = Health;
 
@@ -287,7 +258,6 @@ public class PlayerSmoothFollow : MonoBehaviour
         // Yeni oluşanları ana listeye ekle
         allPlanes.AddRange(newPlanes);
     }
-
     private void SpawnNewPlaneAt(GameObject basePlane, Vector3 direction)
     {
         Vector3 planeSize = new Vector3(
@@ -306,5 +276,44 @@ public class PlayerSmoothFollow : MonoBehaviour
         allPlanes.Add(newPlane);
     }
 
+    private void CalculateLimits()
+    {
+        float distanceFromCamera = Mathf.Abs(Camera.main.transform.position.y - transform.position.y);
+
+        Vector3 bottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, distanceFromCamera));
+        Vector3 topRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, distanceFromCamera));
+
+    }
+    private void FindNearestEnemyAndLockOn()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float closestDistance = Mathf.Infinity;
+        Transform closestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if (distance < closestDistance && distance <= lockOnRange)
+            {
+                closestDistance = distance;
+                closestEnemy = enemy.transform;
+            }
+        }
+
+        if (closestEnemy != null)
+        {
+            nearestEnemy = closestEnemy;
+
+            // Hızlı dönüş için lockOnTurnSpeed kullan
+            Vector3 direction = (nearestEnemy.position - transform.position).normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lockOnTurnSpeed * Time.deltaTime);
+        }
+        else
+        {
+            nearestEnemy = null;
+        }
+    }
 
 }

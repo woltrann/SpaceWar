@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Chronos II
   shipLevel: 1
+  shipmaxLevel: 25
   price: 7000
   upgradeCost: 700
   health: 30
@@ -21,7 +22,7 @@ MonoBehaviour:
   attackSpeed: 20
   attackRange: 11
   shield: 30
-  moveSpeed: 20
+  moveSpeed: 14
   prefab: {fileID: 8954182556072296024, guid: 632ef3fde4d4bfc42b12a96089f7250f, type: 3}
   customButtonPrefab: {fileID: 2830152679243291689, guid: df90c00df8790f74d82e5b26cb4968fa, type: 3}
   upgradeButtonPrefab: {fileID: 0}

@@ -6,6 +6,7 @@ public class ShipDetails : ScriptableObject
 {
     public string shipName;
     public int shipLevel;
+    public int shipmaxLevel;
     public float price;
     public int upgradeCost;
     public float health;

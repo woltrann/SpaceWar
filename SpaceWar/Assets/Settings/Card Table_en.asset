@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 104619081728
-    m_Localized: Increase health +5
+    m_Localized: Increase health +%10
     m_Metadata:
       m_Items: []
   - m_Id: 124361670656

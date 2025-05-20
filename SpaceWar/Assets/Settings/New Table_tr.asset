@@ -119,6 +119,18 @@ MonoBehaviour:
       emin misiniz?"
     m_Metadata:
       m_Items: []
+  - m_Id: 4833827298508800
+    m_Localized: YETENEKLER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875737216090112
+    m_Localized: HANGAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4930283904729088
+    m_Localized: "Titre\u015Fim"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Woltran
   shipLevel: 1
+  shipmaxLevel: 30
   price: 1e+11
   upgradeCost: 0
   health: 40
@@ -21,7 +22,7 @@ MonoBehaviour:
   attackSpeed: 14
   attackRange: 11
   shield: 40
-  moveSpeed: 14
+  moveSpeed: 12
   prefab: {fileID: 3954896615478132433, guid: abf06422f3065254f927f95179c98bd8, type: 3}
   customButtonPrefab: {fileID: 2830152679243291689, guid: df90c00df8790f74d82e5b26cb4968fa, type: 3}
   upgradeButtonPrefab: {fileID: 0}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: Echo Drift
   shipLevel: 1
+  shipmaxLevel: 40
   price: 15000
   upgradeCost: 1500
   health: 50
@@ -21,7 +22,7 @@ MonoBehaviour:
   attackSpeed: 12
   attackRange: 11
   shield: 20
-  moveSpeed: 16
+  moveSpeed: 14
   prefab: {fileID: 4918158773428505341, guid: 45081e8b8a9b0ae4e86d92d15b8c3121, type: 3}
   customButtonPrefab: {fileID: 2830152679243291689, guid: df90c00df8790f74d82e5b26cb4968fa, type: 3}
   upgradeButtonPrefab: {fileID: 0}
