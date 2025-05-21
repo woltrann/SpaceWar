@@ -18,7 +18,6 @@ public class PlayerSmoothFollow : MonoBehaviour
 
 
     [Header("Tilt Settings")]
-    public float tiltAmount = 20f;
     public float tiltSpeed = 30f;
 
     [Header("Ground Expansion")]
@@ -45,8 +44,10 @@ public class PlayerSmoothFollow : MonoBehaviour
 
     [Header("Target Lock Settings")]
     private float lockOnRange; // Kaç birim menzilde düşmanlara bakacak
-    private float lockOnTurnSpeed = 100f; // Düşmana kilitleninceki dönüş hızı
+    private float lockOnTurnSpeed = 150f; // Düşmana kilitleninceki dönüş hızı
     private Transform nearestEnemy;
+
+
 
     private void Awake()
     {
@@ -54,7 +55,6 @@ public class PlayerSmoothFollow : MonoBehaviour
     }
     private void Start()
     {
-
         player = GameObject.FindGameObjectWithTag("Player");
         planeReference = GameObject.FindGameObjectWithTag("Plane");
         GameObject initialPlane = GameObject.FindGameObjectWithTag("Plane");
@@ -77,7 +77,10 @@ public class PlayerSmoothFollow : MonoBehaviour
 
         Move();
         if(fight)Fire();
-        //FindNearestEnemyAndLockOn(); // Her frame kontrol et
+        if (GameManager.Instance.isLockOnEnabled)
+        {
+            FindNearestEnemyAndLockOn();
+        }
         CheckAllPlaneEdges();
     }
 
@@ -284,6 +287,7 @@ public class PlayerSmoothFollow : MonoBehaviour
         Vector3 topRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, distanceFromCamera));
 
     }
+
     private void FindNearestEnemyAndLockOn()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

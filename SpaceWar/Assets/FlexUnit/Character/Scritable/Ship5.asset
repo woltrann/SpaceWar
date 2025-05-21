@@ -20,7 +20,7 @@ MonoBehaviour:
   health: 50
   attackPower: 20
   attackSpeed: 12
-  attackRange: 11
+  attackRange: 30
   shield: 20
   moveSpeed: 14
   prefab: {fileID: 4918158773428505341, guid: 45081e8b8a9b0ae4e86d92d15b8c3121, type: 3}

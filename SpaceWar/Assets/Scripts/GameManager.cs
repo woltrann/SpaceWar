@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public Toggle vibrationToggle;
     public int vibrateValue = 100;
+    public bool isLockOnEnabled = false; // Toggle ile kontrol edilecek
+    public Toggle lockOnToggle;
     public Slider expSlider;
     public Text levelText;
     public GameObject LevelUpPanel;
@@ -98,6 +100,10 @@ public class GameManager : MonoBehaviour
         vibrationToggle.isOn = PlayerPrefs.GetInt("VibrationEnabled", 1) == 1;
         vibrationToggle.onValueChanged.AddListener(OnVibrationToggleChanged);        // Değişiklik olunca fonksiyon çağrılır
 
+        lockOnToggle.onValueChanged.AddListener(OnLockToggleChanged);
+        isLockOnEnabled = PlayerPrefs.GetInt("LockOnEnabled", 0) == 1;
+        lockOnToggle.isOn = isLockOnEnabled;
+
         Turkish.onClick.AddListener(() => SetLanguage("tr")); 
         English.onClick.AddListener(() => SetLanguage("en"));
         Korean.onClick.AddListener(() => SetLanguage("ko-KR"));
@@ -117,6 +123,7 @@ public class GameManager : MonoBehaviour
         if(PausePanel.activeSelf|| SettingPanel.activeSelf||LevelUpPanel.activeSelf||CongratsPanel.activeSelf) Time.timeScale = 0;
         else Time.timeScale = 1;
         SaveVolumeSettings();
+
     }
 
     public void StartGame()
@@ -287,8 +294,8 @@ public class GameManager : MonoBehaviour
     }
     void LoadVolumeSettings()
     {
-        float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.00001f);
-        float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 0.00001f);
+        float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
 
         musicSlider.value = musicVolume;
         sfxSlider.value = sfxVolume;
@@ -312,6 +319,12 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
 
         
+    }
+    public void OnLockToggleChanged(bool isOn)
+    {
+        isLockOnEnabled = isOn;
+        PlayerPrefs.SetInt("LockOnEnabled", isOn ? 1 : 0);
+
     }
     public void LoadOwnedShips()
     {

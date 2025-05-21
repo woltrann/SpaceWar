@@ -131,6 +131,10 @@ MonoBehaviour:
     m_Localized: "Titre\u015Fim"
     m_Metadata:
       m_Items: []
+  - m_Id: 5197076938391552
+    m_Localized: Hedefe Kilitlen
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
