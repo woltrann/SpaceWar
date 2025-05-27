@@ -135,6 +135,14 @@ MonoBehaviour:
     m_Localized: Hedefe Kilitlen
     m_Metadata:
       m_Items: []
+  - m_Id: 6206611140411392
+    m_Localized: "S\u0131f\u0131rla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6207408959946752
+    m_Localized: "Kasay\u0131 A\xE7"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

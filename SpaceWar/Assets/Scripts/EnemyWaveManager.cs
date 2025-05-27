@@ -103,6 +103,8 @@ public class EnemyWaveManager : MonoBehaviour
     {
         if (playerTransform != null)
         {
+            if (SkillDropSlot.Instance.enemyMoveOff) return;
+
             float angle = Random.Range(0f, 360f);   // 0 ile 360 derece arasýnda rastgele bir açý seç
             float radians = angle * Mathf.Deg2Rad;
             Vector3 spawnPosition = playerTransform.position + new Vector3(Mathf.Cos(radians), 0f, Mathf.Sin(radians)) * spawnRadius;   // Bu açýya göre X ve Z koordinatlarýný hesapla  

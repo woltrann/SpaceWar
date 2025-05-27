@@ -39,6 +39,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bee12ae4b0c9b8f499fc7c5df53ee78e
+    m_Address: German (de)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d395130a5fba1c444b64fd843cd769dd
+    m_Address: Russian (ru)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d45d9ee224ec0054b884bcab7c16aed2
     m_Address: Chinese (Simplified) (zh)
     m_ReadOnly: 1

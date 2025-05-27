@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c560f1c14224aa540829cdb7fd03ed9d, type: 3}
   m_Name: card2
   m_EditorClassIdentifier: 
-  cardName: Iron Hearth
+  cardName: Iron Heath
   cardDescription:
     m_TableReference:
       m_TableCollectionName: GUID:91aad0d90d8483b4295fad33cad8bc5d
@@ -22,7 +22,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  cardImage: {fileID: 21300000, guid: a151396ce7d2a534abb80c1363583cb3, type: 3}
+  cardImage: {fileID: 21300000, guid: 7eb2dd9561358054f9f1bc33830cf9ce, type: 3}
   cardAttackSpeed: 0
   cardHealth: 5
   cardShipSpeed: 0

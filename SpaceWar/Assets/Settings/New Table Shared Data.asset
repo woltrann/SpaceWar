@@ -131,6 +131,14 @@ MonoBehaviour:
     m_Key: hedefe kitlen
     m_Metadata:
       m_Items: []
+  - m_Id: 6206611140411392
+    m_Key: reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6207408959946752
+    m_Key: "kasa a\xE7"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

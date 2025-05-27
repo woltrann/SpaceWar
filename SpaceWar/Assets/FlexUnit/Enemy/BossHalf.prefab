@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 2529242975579558188}
   - component: {fileID: 3555506196585453671}
   - component: {fileID: 3293157543413834587}
+  - component: {fileID: 4161408509093983173}
   m_Layer: 0
   m_Name: BossHalf
   m_TagString: Enemy
@@ -464,6 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBoss: 0
+  inBlackHole: 0
   expPrefab: {fileID: 1056666096333670, guid: 3e4e9d0c08047a149bba02a061ce034c, type: 3}
   expAmount: 5
   goldPrefab: {fileID: 1067787962939382205, guid: 0cf84cf0ac74dff43989b183a91e31e2, type: 3}
@@ -497,8 +499,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 13.768494, y: 6.3255253, z: 2.8771}
-  m_Center: {x: 0.0771637, y: 0.09441948, z: 0.1675291}
+  m_Size: {x: 13.768494, y: 8.751892, z: 2.8771}
+  m_Center: {x: 0.0771637, y: -1.1187627, z: 0.1675291}
 --- !u!114 &3293157543413834587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +515,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossEnemy: {fileID: 2529242975579558188}
   healthSlider: {fileID: 1558595976491229174}
+--- !u!54 &4161408509093983173
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119849718256460265}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1602810765858229493
 PrefabInstance:
   m_ObjectHideFlags: 0

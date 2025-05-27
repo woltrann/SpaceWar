@@ -134,6 +134,14 @@ MonoBehaviour:
     m_Localized: Fijar objetivo
     m_Metadata:
       m_Items: []
+  - m_Id: 6206611140411392
+    m_Localized: Reiniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6207408959946752
+    m_Localized: Cofre Abierto
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

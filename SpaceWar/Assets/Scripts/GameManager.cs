@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
-
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -24,11 +22,11 @@ public class GameManager : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
-
     public Button Turkish;
     public Button English;
     public Button Korean;
-    public Button Arabic;
+    public Button German;
+    public Button Russian;
     public Button Spanish;
     public Button Chinese;
 
@@ -57,6 +55,7 @@ public class GameManager : MonoBehaviour
     public GameObject WaveStartPanel;
     public GameObject MainPanel;
     public GameObject HangarPanel;
+    public GameObject SkillsPanel;
     public GameObject PausePanel;
     public GameObject SettingPanel;
     public GameObject GameOverPanel;
@@ -107,7 +106,8 @@ public class GameManager : MonoBehaviour
         Turkish.onClick.AddListener(() => SetLanguage("tr")); 
         English.onClick.AddListener(() => SetLanguage("en"));
         Korean.onClick.AddListener(() => SetLanguage("ko-KR"));
-        Arabic.onClick.AddListener(() => SetLanguage("ar"));
+        German.onClick.AddListener(() => SetLanguage("de"));
+        Russian.onClick.AddListener(() => SetLanguage("ru"));
         Spanish.onClick.AddListener(() => SetLanguage("es"));
         Chinese.onClick.AddListener(() => SetLanguage("zh"));
         PlayerSmoothFollow.fight = false;
@@ -135,6 +135,7 @@ public class GameManager : MonoBehaviour
         HangarPanel.SetActive(false);
         WaveStartPanel.SetActive(true);
         GUIPanel.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+        SkillsPanel.GetComponent<RectTransform>().localScale = new Vector3(0f, 0f, 0f);
        
     }
 
@@ -206,6 +207,7 @@ public class GameManager : MonoBehaviour
     //Panel Sistemi
     public void GameOver()
     {
+        LevelUpPanel.SetActive(false);
         Time.timeScale = 0;
         GameOverPanel.SetActive(true);
         GameoverKilledText.text=killed.ToString();
@@ -248,8 +250,14 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+
+        // Videonun tekrar oynamasını istemiyorsan bunu buraya EKLE
+        PlayerPrefs.SetInt("VideoPlayed", 1);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene(1);
     }
+
     public void ResetProgres()
     {
         MapManager.Instance.ResetMapProgress();
@@ -266,6 +274,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.DeleteKey("Ship" + i + "_Range");
         }
         PlayerPrefs.Save();
+        PlayerPrefs.DeleteAll();
         Debug.Log("Tüm upgrade kayıtları sıfırlandı.");
         RestartGame();
     }
@@ -279,7 +288,9 @@ public class GameManager : MonoBehaviour
     }
     public void GUIPanelOC() => GUIPanel.SetActive(!GUIPanel.activeSelf);
     public void MainPanelOC() => MainPanel.SetActive(!MainPanel.activeSelf);
+    public void HangarPanelOC() => HangarPanel.SetActive(!HangarPanel.activeSelf);
     public void ResetPanelOC() => ResetPanel.SetActive(!ResetPanel.activeSelf);
+    public void SkillsPanelOC() => SkillsPanel.SetActive(!SkillsPanel.activeSelf);
 
     public void SetLanguage(string localeCode)
     {

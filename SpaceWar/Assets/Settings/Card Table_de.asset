@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Card Table_de
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: de
+  m_SharedData: {fileID: 11400000, guid: 91aad0d90d8483b4295fad33cad8bc5d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 81915314176
+    m_Localized: "Erh\xF6ht die Angriffsgeschwindigkeit um +2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 104619081728
+    m_Localized: "Gesundheit erh\xF6hen +10 %"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 114421170176
+    m_Localized: "Erh\xF6hte Bewegungsgeschwindigkeit +2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 124361670656
+    m_Localized: "Magnetfl\xE4che vergr\xF6\xDFern +1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 170373185536
+    m_Localized: "Erh\xF6ht die Angriffskraft +3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 182603776000
+    m_Localized: "Erh\xF6ht die Angriffsreichweite um +3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791163802484736
+    m_Localized: Springt in Bewegungsrichtung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791208182415360
+    m_Localized: Stellt 5 Sekunden lang jede Sekunde 5 % Gesundheit wieder her
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791217653153792
+    m_Localized: "Erzeugt f\xFCr 3 Sekunden einen Energieschild, der Schaden blockiert"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791225488113664
+    m_Localized: "Wird f\xFCr 4 Sekunden unsichtbar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791233843167232
+    m_Localized: "Beschw\xF6rt einen angreifenden Turm f\xFCr 5 Sekunden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791242135306240
+    m_Localized: Verhindert 3 Sekunden lang, dass Feinde angreifen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791250402279424
+    m_Localized: "Ruft Meteoriten herbei, die Fl\xE4chenschaden verursachen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791258174324736
+    m_Localized: "Erzeugt einen Klon, der 10 Sekunden lang mit dir k\xE4mpft"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791269545082880
+    m_Localized: "Friert alle Feinde f\xFCr 3 Sekunden ein"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791278147600384
+    m_Localized: "Erh\xF6ht Angriff und Geschwindigkeit um 50 %, aber du nimmst mehr
+      Schaden"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791288276844544
+    m_Localized: Erzeugt ein schwarzes Loch, das alle Feinde einsaugt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791298276065280
+    m_Localized: Vernichtet sofort alle Feinde auf dem Bildschirm
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

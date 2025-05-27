@@ -134,6 +134,14 @@ MonoBehaviour:
     m_Localized: Lock On Target
     m_Metadata:
       m_Items: []
+  - m_Id: 6206611140411392
+    m_Localized: Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6207408959946752
+    m_Localized: Open Chest
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

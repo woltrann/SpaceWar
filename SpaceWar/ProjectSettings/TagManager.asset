@@ -9,6 +9,11 @@ TagManager:
   - EnemyBullet
   - Exp
   - Plane
+  - ShieldArea
+  - FxTemporaire
+  - Meteor
+  - BlackHole
+  - inBlackHole
   layers:
   - Default
   - TransparentFX

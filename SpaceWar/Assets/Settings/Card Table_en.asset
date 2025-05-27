@@ -42,6 +42,54 @@ MonoBehaviour:
     m_Localized: Increase attack range +3
     m_Metadata:
       m_Items: []
+  - m_Id: 5791163802484736
+    m_Localized: ' Dashes in the movement direction'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791208182415360
+    m_Localized: Restores 5% health per second for 5 seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791217653153792
+    m_Localized: Creates a damage-blocking energy shield for 3 seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791225488113664
+    m_Localized: Become invisible for 4 seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791233843167232
+    m_Localized: Summons an attacking turret for 5 seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791242135306240
+    m_Localized: Prevents enemies from attacking for 3 seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791250402279424
+    m_Localized: Summons meteors that deal area damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791258174324736
+    m_Localized: ' Creates a clone that fights with you for 10 seconds'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791269545082880
+    m_Localized: Freezes all enemies for 3 seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791278147600384
+    m_Localized: Increases attack and speed by 50%, but makes you take more damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791288276844544
+    m_Localized: Creates a black hole that pulls in all enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791298276065280
+    m_Localized: Instantly eliminates all enemies on screen
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

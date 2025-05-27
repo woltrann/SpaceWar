@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     public static Enemy Instance;
 
     public bool isBoss = false;
+    public bool inBlackHole=false;
     public GameObject expPrefab;
     public int expAmount = 3;
     public GameObject goldPrefab;
@@ -49,26 +50,35 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         if (playerTransform == null) return;
+        if (SkillDropSlot.Instance.enemyMoveOff) return;
 
-        Vector3 direction = (playerTransform.position - transform.position).normalized;
-        transform.position += direction * moveSpeed * Time.deltaTime;
-        transform.rotation = Quaternion.LookRotation(direction);
-
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-        if (distanceToPlayer <= attackRange)
+        if (maxHealth > 0)
         {
-            shootTimer += Time.deltaTime;
-            if (shootTimer >= shootInterval)
+            //if(inBlackHole) return;
+            Vector3 direction = (playerTransform.position - transform.position).normalized;
+            transform.position += direction * moveSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.LookRotation(direction);
+
+            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+            if (distanceToPlayer <= attackRange)
             {
-                Shoot();
-                shootTimer = 0f;
+                shootTimer += Time.deltaTime;
+                if (shootTimer >= shootInterval)
+                {
+                    Shoot();
+                    shootTimer = 0f;
+                }
             }
         }
+     
     }
 
     private void Shoot()
     {
         if (playerTransform == null) return;
+        if (SkillDropSlot.Instance.enemyBulletOff) return; // hedefleme veya vurma iptal
+        if (SkillDropSlot.Instance.isInvisible) return;
+
 
         Vector3 direction = (playerTransform.position - transform.position).normalized;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(direction));
@@ -146,6 +156,27 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             TakeDamage(999f);
+        }
+        if (other.CompareTag("ShieldArea"))
+        {
+            TakeDamage(999f);
+        }
+        if (other.CompareTag("Meteor"))
+        {
+            TakeDamage(PlayerSmoothFollow.Instance.damage * 3);
+        }
+        if(other.CompareTag("BlackHole"))
+        {
+            inBlackHole = true;
+            Debug.Log("BlackHole");
+        }
+        else
+        {
+            inBlackHole = false;
+        }
+        if(other.CompareTag("inBlackHole"))
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -42,6 +42,58 @@ MonoBehaviour:
     m_Localized: "Sald\u0131r\u0131 menzilini art\u0131r\u0131r +3"
     m_Metadata:
       m_Items: []
+  - m_Id: 5791163802484736
+    m_Localized: "Hareket y\xF6n\xFCne do\u011Fru s\u0131\xE7rama yapar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791208182415360
+    m_Localized: "5 saniye boyunca her saniye sa\u011Fl\u0131\u011F\u0131n %5'ini
+      yeniler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791217653153792
+    m_Localized: "3 saniye boyunca hasar\u0131 engelleyen enerji kalkan\u0131 olu\u015Fur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791225488113664
+    m_Localized: "4 saniye boyunca g\xF6r\xFCnmez olursun"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791233843167232
+    m_Localized: "5 saniyeli\u011Fine sald\u0131ran kule kurar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791242135306240
+    m_Localized: "3 saniye boyunca d\xFC\u015Fmanlar\u0131n sald\u0131r\u0131 yapmas\u0131n\u0131
+      engeller"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791250402279424
+    m_Localized: "Alan hasar\u0131 veren meteorlar ya\u011Fd\u0131r\u0131r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791258174324736
+    m_Localized: "10 saniye boyunca seninle birlikte sava\u015Fan klon olu\u015Fturur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791269545082880
+    m_Localized: "3 saniyeli\u011Fine t\xFCm d\xFC\u015Fmanlar\u0131 dondurur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791278147600384
+    m_Localized: "Sald\u0131r\u0131 ve h\u0131z\u0131 %50 art\u0131r\u0131r ve daha
+      fazla hasar almana sebep olur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791288276844544
+    m_Localized: "Kara delik olu\u015Fturur ve t\xFCm d\xFC\u015Fmanlar\u0131 i\xE7ine
+      \xE7eker"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791298276065280
+    m_Localized: "Ekrandaki t\xFCm d\xFC\u015Fmanlar\u0131 bir anda yok eder"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -39,6 +39,54 @@ MonoBehaviour:
     m_Key: kart6
     m_Metadata:
       m_Items: []
+  - m_Id: 5791163802484736
+    m_Key: skill1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791208182415360
+    m_Key: skill2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791217653153792
+    m_Key: skill3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791225488113664
+    m_Key: skill4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791233843167232
+    m_Key: skill5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791242135306240
+    m_Key: skill6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791250402279424
+    m_Key: skill7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791258174324736
+    m_Key: skill8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791269545082880
+    m_Key: skill9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791278147600384
+    m_Key: skill10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791288276844544
+    m_Key: skill11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791298276065280
+    m_Key: skill12
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

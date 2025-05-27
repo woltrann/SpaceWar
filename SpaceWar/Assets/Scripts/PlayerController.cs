@@ -31,12 +31,14 @@ public class PlayerSmoothFollow : MonoBehaviour
     [Header("Bullet Settings")]
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public float damage;
     private float moveSpeed;
     private float fireRate;
     private float nextFireTime = 0f;
     private float Health;
     private float shield;
     private Slider healthSlider;
+    private float damageMultiplier=1;
 
     [Header("Hit Effect")]
     public GameObject hitParticle;
@@ -44,7 +46,7 @@ public class PlayerSmoothFollow : MonoBehaviour
 
     [Header("Target Lock Settings")]
     private float lockOnRange; // Kaç birim menzilde düşmanlara bakacak
-    private float lockOnTurnSpeed = 150f; // Düşmana kilitleninceki dönüş hızı
+    private float lockOnTurnSpeed = 250f; // Düşmana kilitleninceki dönüş hızı
     private Transform nearestEnemy;
 
 
@@ -74,10 +76,10 @@ public class PlayerSmoothFollow : MonoBehaviour
     private void Update()
     {
         moveSpeed = runtimeStats.moveSpeed;
-
+        damage = runtimeStats.attackPower;
         Move();
         if(fight)Fire();
-        if (GameManager.Instance.isLockOnEnabled)
+        if (GameManager.Instance.isLockOnEnabled && fight)
         {
             FindNearestEnemyAndLockOn();
         }
@@ -94,31 +96,63 @@ public class PlayerSmoothFollow : MonoBehaviour
         if (moveDirection.magnitude >= 0.1f)
         {
             Vector3 targetPosition = transform.position + moveDirection * moveSpeed * Time.deltaTime;
+            transform.position = targetPosition;
 
-            transform.position = targetPosition; // Sınırsız hareket
+            bool shouldUseJoystickRotation = true;
 
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+            // Lock-On açık VE geçerli hedef varsa VE mesafe içindeyse joystick dönüşünü engelle
+            if (GameManager.Instance.isLockOnEnabled && nearestEnemy != null)
+            {
+                float distToEnemy = Vector3.Distance(transform.position, nearestEnemy.position);
+                if (distToEnemy <= lockOnRange)
+                {
+                    shouldUseJoystickRotation = false; // Çünkü düşmana zaten dönüyoruz
+                }
+            }
+
+            if (shouldUseJoystickRotation)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+            }
         }
     }
+
     private void Fire()
     {
-        //Input.touchCount > 0 &&
-        if ( Time.time >= nextFireTime)
+        if (Time.time >= nextFireTime)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Quaternion fireRotation;
+
+            if (GameManager.Instance.isLockOnEnabled && nearestEnemy != null)
+            {
+                // Düşmana doğru mermi yönü
+                Vector3 dirToEnemy = (nearestEnemy.position - firePoint.position).normalized;
+                fireRotation = Quaternion.LookRotation(dirToEnemy);
+            }
+            else
+            {
+                // Normal firePoint yönü
+                fireRotation = firePoint.rotation;
+            }
+
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, fireRotation);
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             if (bulletScript != null)
             {
                 bulletScript.SetDamage(runtimeStats.attackPower);
             }
-            nextFireTime = Time.time + (10/ runtimeStats.attackSpeed);
+
+            nextFireTime = Time.time + (10 / runtimeStats.attackSpeed);
         }
     }
     public void TakeDamage(float amount)
     {
+        if (SkillDropSlot.Instance.isDashing) return;
+        if (SkillDropSlot.Instance.isInvisible) return; // hedefleme veya vurma iptal
+
         Vibration.Vibrate(GameManager.Instance.vibrateValue);
-        Health -= amount;
+        Health -= amount* damageMultiplier;
         Health = Mathf.Clamp(Health, 0, runtimeStats.health);
         healthSlider.value = Health;
 
@@ -127,6 +161,55 @@ public class PlayerSmoothFollow : MonoBehaviour
             Die();
         }
     }
+
+/// Can yenileme (skill2)
+    public void StartHealthRegenOverTime()
+    {
+        StartCoroutine(HealthRegenCoroutine());
+    }
+    private IEnumerator HealthRegenCoroutine()
+    {
+        int seconds = 5;
+        float regenAmountPerSecond = Health * 0.05f;
+
+        for (int i = 0; i < seconds; i++)
+        {
+            Health += regenAmountPerSecond;
+            Health = Mathf.Clamp(Health, 0, Health);
+            healthSlider.value = Health;
+
+            yield return new WaitForSeconds(1f);
+        }
+    }
+/// DamageBoost (skill10)
+    public void UseSkill9() => StartCoroutine(Skill9Coroutine());
+    public IEnumerator Skill9Coroutine()
+    {
+        SkillDropSlot.Instance.damageBoost = true;
+
+        // Orijinal değerleri kaydet
+        float originalAttackPower = runtimeStats.attackPower;
+        float originalAttackSpeed = runtimeStats.attackSpeed;
+
+        // Artışları uygula
+        runtimeStats.attackPower *= 1.5f;  // %50 artış
+        runtimeStats.attackSpeed *= 1.5f;  // %50 artış
+
+        // Alınan hasarı %40 artırmak için ek bir flag veya değişken kullanabilirsin
+        // Mesela:
+        damageMultiplier = 1.4f;  // alınan hasar 1.4 katı olacak şekilde çarpılacak
+
+        yield return new WaitForSeconds(5f);
+
+        // Değerleri geri al
+        runtimeStats.attackPower = originalAttackPower;
+        runtimeStats.attackSpeed = originalAttackSpeed;
+
+        damageMultiplier = 1f;  // hasar normal seviyeye döndü
+
+        SkillDropSlot.Instance.damageBoost = false;
+    }
+
     private void Die()
     {
         Vibration.Vibrate(GameManager.Instance.vibrateValue *5);
@@ -153,6 +236,8 @@ public class PlayerSmoothFollow : MonoBehaviour
     {
         if ( other.CompareTag("Enemy"))
         {
+            if (SkillDropSlot.Instance.isDashing) return;
+            if (SkillDropSlot.Instance.isInvisible) return; // hedefleme veya vurma iptal
             transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
             Vibration.Vibrate(GameManager.Instance.vibrateValue * 5);
 
@@ -309,7 +394,6 @@ public class PlayerSmoothFollow : MonoBehaviour
         {
             nearestEnemy = closestEnemy;
 
-            // Hızlı dönüş için lockOnTurnSpeed kullan
             Vector3 direction = (nearestEnemy.position - transform.position).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lockOnTurnSpeed * Time.deltaTime);

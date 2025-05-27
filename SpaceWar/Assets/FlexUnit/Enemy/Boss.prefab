@@ -2674,6 +2674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBoss: 1
+  inBlackHole: 0
   expPrefab: {fileID: 1056666096333670, guid: 3e4e9d0c08047a149bba02a061ce034c, type: 3}
   expAmount: 0
   goldPrefab: {fileID: 1067787962939382205, guid: 0cf84cf0ac74dff43989b183a91e31e2, type: 3}
@@ -2707,8 +2708,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 11.888388, y: 2.2268093, z: 4.4472175}
-  m_Center: {x: 0.29253134, y: -0.20370309, z: -1.7236087}
+  m_Size: {x: 11.888388, y: 3.9261289, z: 4.4472175}
+  m_Center: {x: 0.29253134, y: -1.0533614, z: -1.7236087}
 --- !u!114 &-6017015335068411634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,8 +2734,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8406201728883536029, guid: 057a98e5c8c571449bcdc17bcd46cf9f, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 30bd664a4b0b79948aad98cd0c393223, type: 3}
-  m_Resource: {fileID: 8300000, guid: 30bd664a4b0b79948aad98cd0c393223, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 986c394be86f91f40b1900bdaf79e54d, type: 3}
+  m_Resource: {fileID: 8300000, guid: 986c394be86f91f40b1900bdaf79e54d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

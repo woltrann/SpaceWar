@@ -22,7 +22,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  cardImage: {fileID: 21300000, guid: e414f4b3f2184984a87e2c2982b2c167, type: 3}
+  cardImage: {fileID: 21300000, guid: a7412d448052adf4f99f79289f49eea3, type: 3}
   cardAttackSpeed: 2
   cardHealth: 0
   cardShipSpeed: 0

@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: New Table_de
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: de
+  m_SharedData: {fileID: 11400000, guid: 9bf0e7364bdb948459e3ce26a58718f4, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 27490025472
+    m_Localized: EINSTELLUNGEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 576823109386240
+    m_Localized: PUNKTZAHL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577967743336448
+    m_Localized: Gesundheit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579099102314496
+    m_Localized: Schiffskarten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 580284232269824
+    m_Localized: "W\xE4hle eine Karte f\xFCr dein Schiff"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 581212544991232
+    m_Localized: WEITERMACHEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 581900188549120
+    m_Localized: AUSFAHRT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582051888136192
+    m_Localized: SPIEL VORBEI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582722075000832
+    m_Localized: "HAUPTMEN\xDC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582917437292544
+    m_Localized: "Get\xF6tet:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583489762656256
+    m_Localized: 'Verdiene Gold:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 584872809234432
+    m_Localized: 'Punktzahl:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 585684805517312
+    m_Localized: "GL\xDCCKWUNSCH!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 585867391959040
+    m_Localized: Neue Karte freigeschaltet!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 587503896133632
+    m_Localized: SCHLIESSEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 589236617641984
+    m_Localized: STATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 589909635661824
+    m_Localized: KARTE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 590558511267840
+    m_Localized: START
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593390039760896
+    m_Localized: 'GOLD:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714623792218112
+    m_Localized: Kaufen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714692322951168
+    m_Localized: "W\xE4hlen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714765895237632
+    m_Localized: "Ausgew\xE4hlt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859173131157504
+    m_Localized: JA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859196703145984
+    m_Localized: NEIN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 859406372208640
+    m_Localized: "M\xF6chten Sie den gespeicherten Fortschritt wirklich zur\xFCcksetzen?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4833827298508800
+    m_Localized: "F\xC4HIGKEITEN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4875737216090112
+    m_Localized: HANGAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4930283904729088
+    m_Localized: Vibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5197076938391552
+    m_Localized: Ziel erfassen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6206611140411392
+    m_Localized: "Zur\xFCcksetzen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6207408959946752
+    m_Localized: Offene Brust
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

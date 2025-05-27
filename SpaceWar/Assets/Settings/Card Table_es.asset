@@ -42,6 +42,55 @@ MonoBehaviour:
     m_Localized: Incrementar alcance de ataque +3
     m_Metadata:
       m_Items: []
+  - m_Id: 5791163802484736
+    m_Localized: "Se lanza en la direcci\xF3n del movimiento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791208182415360
+    m_Localized: Restaura el 5% de salud por segundo durante 5 segundos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791217653153792
+    m_Localized: "Crea un escudo de energ\xEDa que bloquea da\xF1o durante 3 segundos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791225488113664
+    m_Localized: ' Se vuelve invisible durante 4 segundos'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791233843167232
+    m_Localized: ' Invoca una torreta atacante durante 5 segundos'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791242135306240
+    m_Localized: Impide que los enemigos ataquen durante 3 segundos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791250402279424
+    m_Localized: "Invoca meteoritos que infligen da\xF1o de \xE1rea"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791258174324736
+    m_Localized: Crea un clon que lucha contigo durante 10 segundos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791269545082880
+    m_Localized: Congela a todos los enemigos durante 3 segundos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791278147600384
+    m_Localized: "Aumenta el ataque y la velocidad en un 50%, pero recibes m\xE1s
+      da\xF1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791288276844544
+    m_Localized: Crea un agujero negro que atrae a todos los enemigos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5791298276065280
+    m_Localized: " Elimina instant\xE1neamente a todos los enemigos en pantalla"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

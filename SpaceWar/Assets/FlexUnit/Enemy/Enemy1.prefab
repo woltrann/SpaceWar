@@ -1177,6 +1177,7 @@ GameObject:
   - component: {fileID: 7312249517595899257}
   - component: {fileID: 6879410385057202959}
   - component: {fileID: 2226033448948876393}
+  - component: {fileID: -162961410016514003}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -1243,8 +1244,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.48862398, y: 0.28435156, z: 0.7111628}
-  m_Center: {x: -0.0021676167, y: 0.07157701, z: -0.1444186}
+  m_Size: {x: 0.48862398, y: 0.51278543, z: 0.7111628}
+  m_Center: {x: -0.0021676167, y: -0.042639863, z: -0.1444186}
 --- !u!114 &2226033448948876393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,6 +1259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBoss: 0
+  inBlackHole: 0
   expPrefab: {fileID: 1056666096333670, guid: 3e4e9d0c08047a149bba02a061ce034c, type: 3}
   expAmount: 1
   goldPrefab: {fileID: 1067787962939382205, guid: 0cf84cf0ac74dff43989b183a91e31e2, type: 3}
@@ -1272,6 +1274,33 @@ MonoBehaviour:
   maxHealth: 2
   attackDamage: 1
   statMultiplier: 1
+--- !u!54 &-162961410016514003
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9024772757322618091}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9054381640115014450
 GameObject:
   m_ObjectHideFlags: 0

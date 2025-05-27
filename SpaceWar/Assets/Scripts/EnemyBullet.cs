@@ -22,5 +22,10 @@ public class EnemyBullet : MonoBehaviour
 
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("ShieldArea"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
