@@ -9,6 +9,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
     public SkillDetails skillData;
     public Image slotImage; // G�rsel g�sterilecek alan (iste�e ba�l�)
     public Button assignedSkillButton; // Oyuncunun t�klay�p kullanaca�� buton
+    public GameObject SkillBUttonImage;
     public float cooldownTime = 5f;
     private Slider cooldownSlider;
     private bool isCoolingDown = false;
@@ -80,6 +81,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
             if (assignedSkillButton != null)
             {
                 assignedSkillButton.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+                SkillBUttonImage.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
                 assignedSkillButton.onClick.RemoveAllListeners();
                 assignedSkillButton.onClick.AddListener(() => TryUseSkill(skillClone.name));
                 assignedSkillButton.interactable = true;
@@ -405,7 +407,6 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
             }
         }
     }
-
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

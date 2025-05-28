@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     public GameObject CongratsPanel;
     public GameObject BGPanel;
     public GameObject ResetPanel;
+    public GameObject GoldPanel;
 
     public static int currentLevel = 1;
     public float currentExp = 0;
@@ -136,6 +137,7 @@ public class GameManager : MonoBehaviour
         WaveStartPanel.SetActive(true);
         GUIPanel.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
         SkillsPanel.GetComponent<RectTransform>().localScale = new Vector3(0f, 0f, 0f);
+        GoldPanel.SetActive(false);
        
     }
 
@@ -221,6 +223,26 @@ public class GameManager : MonoBehaviour
     }
     public void Congrats()
     {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        GameObject[] gold = GameObject.FindGameObjectsWithTag("Gold");
+        foreach (GameObject golds in gold)
+        {
+            Destroy(golds);
+        }
+        GameObject[] exp = GameObject.FindGameObjectsWithTag("Exp");
+        foreach (GameObject exps in exp)
+        {
+            Destroy(exps);
+        }
+        GameObject[] expp = GameObject.FindGameObjectsWithTag("Drop");
+        foreach (GameObject expps in expp)
+        {
+            Destroy(expps);
+        }
         MapManager.Instance.UnlockNextMap();
         Time.timeScale = 0;
         CongratsPanel.SetActive(true);
@@ -244,8 +266,7 @@ public class GameManager : MonoBehaviour
         currentExp = 0;
         expToNextLevel = 100;
         UpdateUI();
-
-
+        MapManager.Instance.UpdateUI();
     }
     public void RestartGame()
     {

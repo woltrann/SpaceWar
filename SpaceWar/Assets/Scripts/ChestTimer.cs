@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 public class ChestTimer : MonoBehaviour
 {
+    private SkillDragHandler currentSkillDragHandler;
+    public SkillParentController skillParentController;
+
     [Header("Ayarlar")]
     public int chestID ; // Örneðin: "1" = 4 saatlik kasa, "2" = 8 saatlik kasa
     public float hoursToUnlock = 4;
@@ -14,6 +17,10 @@ public class ChestTimer : MonoBehaviour
     [Header("UI")]
     public Text timerText;
     public Button openChestButton;
+    public GameObject ChestResultPanel;
+ 
+    public GameObject ChestImage;
+    public Text Reward;
 
     private string chestKey;
     private DateTime unlockTime;
@@ -60,123 +67,159 @@ public class ChestTimer : MonoBehaviour
 
         Debug.Log($"KASA {chestID} AÇILDI!");
 
+        string rewardMessage = ""; // Kazanýlan ödül metni
 
-        // Buraya kasa ödülünü ver
+        // Ödül verme
+        int randomValue = Random.Range(0, 100);
+
         if (chestID == 1)
         {
-            int randomValue = Random.Range(0, 100); // 0 dahil, 100 hariç
-            Debug.Log("rasgele sayý:"+randomValue);
-
             if (randomValue < 68)
             {
-                // %68 ihtimal: 1000 ile 3000 arasýnda gold
-                int goldAmount = Random.Range(1000, 3001); // 3000 dahil
-                Debug.Log("Gold Kazanýldý: " + goldAmount);
+                int goldAmount = Random.Range(1000, 3001);
+                GameManager.Instance.totalGold += goldAmount;
+                GameManager.Instance.TotalGoldText.text = GameManager.Instance.totalGold.ToString();
+                PlayerPrefs.SetFloat("TotalGold", GameManager.Instance.totalGold);
+                rewardMessage = $"+ {goldAmount} G";
             }
-            else if (randomValue < 83) // 68 + 15 = 83
+            else if (randomValue < 83)
             {
-                // %15 ihtimal: 1. 2. 3. skillerden biri
-                int skillIndex = Random.Range(1, 4); // 1, 2, 3
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(1, 4);
+                rewardMessage = $"Skill{skillIndex}.";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else if (randomValue < 93) // 83 + 10 = 93
+            else if (randomValue < 93)
             {
-                // %10 ihtimal: 4. 5. 6. skillerden biri
-                int skillIndex = Random.Range(4, 7); // 4, 5, 6
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(4, 7);
+                rewardMessage = $"Skill{skillIndex}.";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else if (randomValue < 98) // 93 + 5 = 98
+            else if (randomValue < 98)
             {
-                // %5 ihtimal: 7. 8. 9. skillerden biri
-                int skillIndex = Random.Range(7, 10); // 7, 8, 9
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(7, 10);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else // %2 ihtimal: 98 - 99
+            else
             {
-                int skillIndex = Random.Range(10, 13); // 10, 11, 12
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(10, 13);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
+
         }
         else if (chestID == 2)
         {
-            int randomValue = Random.Range(0, 100); // 0 dahil, 100 hariç
-            Debug.Log("rasgele sayý:" + randomValue);
-
             if (randomValue < 56)
             {
-                // %68 ihtimal: 1000 ile 3000 arasýnda gold
-                int goldAmount = Random.Range(1000, 3001); // 3000 dahil
-                Debug.Log("Gold Kazanýldý: " + goldAmount);
+                int goldAmount = Random.Range(3000, 5001);
+                GameManager.Instance.totalGold += goldAmount;
+                GameManager.Instance.TotalGoldText.text = GameManager.Instance.totalGold.ToString();
+                PlayerPrefs.SetFloat("TotalGold", GameManager.Instance.totalGold);
+                rewardMessage = $"+ {goldAmount} G";
             }
-            else if (randomValue < 74) // 68 + 15 = 83
+            else if (randomValue < 74)
             {
-                // %15 ihtimal: 1. 2. 3. skillerden biri
-                int skillIndex = Random.Range(1, 4); // 1, 2, 3
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(1, 4);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else if (randomValue < 87) // 83 + 10 = 93
+            else if (randomValue < 87)
             {
-                // %10 ihtimal: 4. 5. 6. skillerden biri
-                int skillIndex = Random.Range(4, 7); // 4, 5, 6
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(4, 7);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else if (randomValue < 95) // 93 + 5 = 98
+            else if (randomValue < 95)
             {
-                // %5 ihtimal: 7. 8. 9. skillerden biri
-                int skillIndex = Random.Range(7, 10); // 7, 8, 9
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(7, 10);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else // %2 ihtimal: 98 - 99
+            else
             {
-                int skillIndex = Random.Range(10, 13); // 10, 11, 12
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(10, 13);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-
         }
         else
         {
-            int randomValue = Random.Range(0, 100); // 0 dahil, 100 hariç
-            Debug.Log("rasgele sayý:" + randomValue);
-
             if (randomValue < 44)
             {
-                // %68 ihtimal: 1000 ile 3000 arasýnda gold
-                int goldAmount = Random.Range(1000, 3001); // 3000 dahil
-                Debug.Log("Gold Kazanýldý: " + goldAmount);
+                int goldAmount = Random.Range(5000, 10001);
+                GameManager.Instance.totalGold += goldAmount;
+                GameManager.Instance.TotalGoldText.text = GameManager.Instance.totalGold.ToString();
+                PlayerPrefs.SetFloat("TotalGold", GameManager.Instance.totalGold);
+                rewardMessage = $"+ {goldAmount} G";
             }
-            else if (randomValue < 65) // 68 + 15 = 83
+            else if (randomValue < 65)
             {
-                // %15 ihtimal: 1. 2. 3. skillerden biri
-                int skillIndex = Random.Range(1, 4); // 1, 2, 3
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(1, 4);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else if (randomValue < 81) // 83 + 10 = 93
+            else if (randomValue < 81)
             {
-                // %10 ihtimal: 4. 5. 6. skillerden biri
-                int skillIndex = Random.Range(4, 7); // 4, 5, 6
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(4, 7);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else if (randomValue < 92) // 93 + 5 = 98
+            else if (randomValue < 92)
             {
-                // %5 ihtimal: 7. 8. 9. skillerden biri
-                int skillIndex = Random.Range(7, 10); // 7, 8, 9
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(7, 10);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-            else // %2 ihtimal: 98 - 99
+            else
             {
-                int skillIndex = Random.Range(10, 13); // 10, 11, 12
-                Debug.Log("Skill Kazanýldý: Skill " + skillIndex);
+                int skillIndex = Random.Range(10, 13);
+                rewardMessage = $"Skill{skillIndex} .";
+                TrySkills(skillIndex, rewardMessage);
             }
-
         }
-        
-        
+
+        // Göster panelini
+        Reward.text = rewardMessage;
+        ChestResultPanel.SetActive(true);
+        ChestImage.SetActive(true);
+        Invoke(nameof(HideResultPanel), 2f); // 2 saniye sonra paneli kapat
+
         // Kasa zamanlayýcýsýný sýfýrla
-            unlockTime = DateTime.Now.AddHours(hoursToUnlock);
+        unlockTime = DateTime.Now.AddHours(hoursToUnlock);
         PlayerPrefs.SetString(chestKey, unlockTime.ToString());
         PlayerPrefs.Save();
 
         openChestButton.interactable = false;
         chestReady = false;
+    }
+    void HideResultPanel()
+    {
+        ChestResultPanel.SetActive(false);
+        ChestImage.SetActive(false);
+    }
+    public void TrySkills(int skillIndex, string rewardMessage)
+    {
+        // Zaten açýlmýþ mý kontrol et
+        if (PlayerPrefs.GetInt("SkillUnlocked_" + skillIndex, 0) == 1)
+        {
+            // Skill zaten var, altýn ver
+            int goldAmount = Random.Range(2000, 8001);
+            GameManager.Instance.totalGold += goldAmount;
+            GameManager.Instance.TotalGoldText.text = GameManager.Instance.totalGold.ToString();
+            PlayerPrefs.SetFloat("TotalGold", GameManager.Instance.totalGold);
+            Reward.text =  $"+ {goldAmount} Gg";
+        }
+        else
+        {
+            // Yeni skill kazanýldý, kilidi aç
+            PlayerPrefs.SetInt("SkillUnlocked_" + skillIndex, 1);
+            PlayerPrefs.Save();
+            PlayerPrefs.GetInt("SkillUnlocked_" + skillIndex, 0);
+            
+            Reward.text = rewardMessage;
+            Debug.Log("Skill açýlýyor: SkillUnlocked_" + skillIndex + " = " + PlayerPrefs.GetInt("SkillUnlocked_" + skillIndex));
+            skillParentController.UnlockSkillByID(skillIndex);
+        }
     }
 }

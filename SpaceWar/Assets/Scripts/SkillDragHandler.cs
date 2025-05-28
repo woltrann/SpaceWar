@@ -8,13 +8,16 @@ using UnityEngine.UI;
 /// </summary>
 public class SkillDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public int skillIndex; // Skill'e özel ID (Inspector’dan ayarlanmalý)
+    public Text priceText; // Inspector'dan atanacak
     public bool isUnlocked = false; // Bu skill satýn alýndý mý?
 
     private CanvasGroup canvasGroup;         // UI öðesinin raycast kontrolü için
     private RectTransform rectTransform;     // UI öðesinin konumunu kontrol etmek için
     private Transform originalParent;        // Drag iþlemi sýrasýnda geri dönebileceði orijinal parent
-
     private GameObject draggingIcon;         // Sürüklenen skill'in ekranda oluþan geçici kopyasý
+
+  
 
     void Awake()
     {
@@ -22,7 +25,14 @@ public class SkillDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         canvasGroup = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
     }
-
+  void Start()
+    {
+        // KAYITLI VERÝYÝ KONTROL ET
+        if (PlayerPrefs.GetInt("SkillUnlocked_" + skillIndex, 0) == 1)
+        {
+            UnlockSkill();
+        }
+    }
     public void OnBeginDrag(PointerEventData eventData) // Drag baþladýðýnda çalýþýr. Skill kopyasýný oluþturur ve sürüklenmeye hazýr hale getirir.
     {
         if (!isUnlocked) return; // Skill kilitliyse iþlem yapma
@@ -56,6 +66,7 @@ public class SkillDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void UnlockSkill()    // Skill satýn alýndýðýnda çaðrýlýr. Skill artýk kullanýlabilir (sürüklenebilir) olur.
     {
+        Debug.Log("Skill " + skillIndex + " unlocked!");
         isUnlocked = true; // Artýk drag yapýlabilir   
         GetComponent<Button>().interactable = false;        // Artýk butona týklanmasýn, çünkü iþlevi sadece drag olacak
         GetComponent<Image>().color = Color.white;        // Rengini beyaz yap, örneðin satýn alýnmýþ hissi vermek için

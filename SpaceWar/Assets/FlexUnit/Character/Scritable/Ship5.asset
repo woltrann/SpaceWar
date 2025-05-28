@@ -20,9 +20,9 @@ MonoBehaviour:
   health: 50
   attackPower: 20
   attackSpeed: 12
-  attackRange: 30
-  shield: 20
-  moveSpeed: 14
+  attackRange: 15
+  shield: 50
+  moveSpeed: 16
   prefab: {fileID: 4918158773428505341, guid: 45081e8b8a9b0ae4e86d92d15b8c3121, type: 3}
   customButtonPrefab: {fileID: 2830152679243291689, guid: df90c00df8790f74d82e5b26cb4968fa, type: 3}
   upgradeButtonPrefab: {fileID: 0}

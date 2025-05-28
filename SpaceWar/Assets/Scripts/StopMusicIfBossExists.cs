@@ -11,21 +11,23 @@ public class StopMusicIfBossExists : MonoBehaviour
 
     void Update()
     {
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        GameObject bossObject = GameObject.Find("Boss(Clone)");
 
-        foreach (GameObject obj in allObjects)
+        if (bossObject != null)
         {
-            if (obj.name.StartsWith("Boss"))
+            if (audioSource.isPlaying)
             {
-                if (audioSource.isPlaying)
-                {
-                    audioSource.Stop();
-                }
-                break;
+                audioSource.Stop();
+                Debug.Log("Music stopped because Boss exists.");
             }
         }
+        //else
+        //{
+        //    if (!audioSource.isPlaying)
+        //    {
+        //        audioSource.Play();
+        //        Debug.Log("Music resumed because Boss is gone.");
+        //    }
+        //}
     }
-
-
-
 }

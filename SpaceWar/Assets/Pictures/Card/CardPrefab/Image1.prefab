@@ -287,7 +287,6 @@ GameObject:
   - component: {fileID: 8985141407218518437}
   - component: {fileID: 5410563379985209277}
   - component: {fileID: 4257398969511318504}
-  - component: {fileID: 2760571567442449149}
   m_Layer: 5
   m_Name: Image1
   m_TagString: Untagged
@@ -357,21 +356,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2760571567442449149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784557789413949123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bea08f96bc90a488a22d9b1276b069, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardImage: {fileID: 4402280181829369750}
-  cardNameText: {fileID: 1859806823102359422}
-  cardDescriptionText: {fileID: 1115159441856096021}
 --- !u!1 &8609181391040340104
 GameObject:
   m_ObjectHideFlags: 0

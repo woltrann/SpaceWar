@@ -1,6 +1,5 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using UnityEngine;
 
 public class SecondCinematic : MonoBehaviour
 {
@@ -18,7 +17,7 @@ public class SecondCinematic : MonoBehaviour
     void Start()
     {
         rawImageParent.SetActive(false);
-        videoPlayer.loopPointReached += OnVideoEnd;
+        
     }
 
     void Update()
@@ -40,8 +39,8 @@ public class SecondCinematic : MonoBehaviour
     public void PlayVideoAndStartBattleAfter()
     {
         rawImageParent.SetActive(true);
-        videoPlayer.Play();
         videoPlaying = true;
+        videoPlayer.loopPointReached += OnVideoEnd;
     }
 
     public void StartBattle()

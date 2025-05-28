@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     private void LateUpdate()
     {
         if (target == null) return;
-
+        Camera mainCam = Camera.main;
         transform.position = target.position + offset;
     }
 

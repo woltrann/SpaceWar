@@ -13,6 +13,11 @@ public class CardUI : MonoBehaviour
 
     public void Setup(CardDetails card)
     {
+        if (cardData != null)
+        {
+            // Önceki karta ait event'ten çýk
+            cardData.cardDescription.StringChanged -= UpdateCardDescription;
+        }
         cardData = card;
         cardImage.sprite = card.cardImage;
         cardNameText.text = card.cardName;

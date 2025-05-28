@@ -42,27 +42,53 @@ public class MapManager : MonoBehaviour
             maps[i].isUnlocked = PlayerPrefs.GetInt($"MapUnlocked_{i}", i == 0 ? 1 : 0) == 1;
         }
 
+        //  En son hangi harita seçildiyse onu yükle
+        currentIndex = PlayerPrefs.GetInt("CurrentMapIndex", 0);
+        currentIndex = Mathf.Clamp(currentIndex, 0, maps.Length - 1);
+
         UpdateUI();
         leftButton.onClick.AddListener(PreviousMap);
         rightButton.onClick.AddListener(NextMap);
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         if (maps.Length == 0) return;
         MapData currentMap = maps[currentIndex];
         mapNameText.text = currentMap.isUnlocked ? currentMap.mapName : "???";
         mapPreviewImage.sprite = currentMap.previewImage;        // Preview image her zaman gösterilir
+        Debug.Log("1");
      
         if (mapLockedOverlayImage != null)      // Eğer kilitliyse overlay aktif edilir
         {
             mapLockedOverlayImage.gameObject.SetActive(!currentMap.isUnlocked);
             mapLockedOverlayImage.sprite = currentMap.lockedImage;
+            Debug.Log("2");
         }
-      
+
         if (groundRenderer != null && currentMap.isUnlocked && currentMap.mapMaterial != null)      // Yere materyali sadece açıksa uygula
         {
             groundRenderer.material = currentMap.mapMaterial;
+            Debug.Log("3");
+        }
+        if (currentMap.isUnlocked && currentMap.mapMaterial != null)
+        {
+            ApplyMaterialToAllGroundRenderers(currentMap.mapMaterial);
+        }
+        PlayerPrefs.SetInt("CurrentMapIndex", currentIndex);
+        PlayerPrefs.Save();
+    }
+    void ApplyMaterialToAllGroundRenderers(Material newMat)
+    {
+        GameObject[] groundObjects = GameObject.FindGameObjectsWithTag("Plane");
+
+        foreach (GameObject obj in groundObjects)
+        {
+            Renderer rend = obj.GetComponent<Renderer>();
+            if (rend != null)
+            {
+                rend.material = newMat; // veya rend.sharedMaterial
+            }
         }
     }
 
@@ -105,6 +131,7 @@ public class MapManager : MonoBehaviour
             PlayerPrefs.Save(); // Opsiyonel ama güvenli
             Debug.Log("Yeni harita açıldı: " + maps[currentIndex + 1].mapName);
         }
+        UpdateUI();
     }
     public void ResetMapProgress()
     {

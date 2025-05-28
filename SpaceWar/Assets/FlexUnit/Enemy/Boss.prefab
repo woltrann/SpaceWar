@@ -2722,7 +2722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd8516e54fc54849886f32421893ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossEnemy: {fileID: -5168921418808897205}
+  EnemyBoss: {fileID: -5168921418808897205}
   healthSlider: {fileID: 597497827165601497}
 --- !u!82 &-6351492062566090785
 AudioSource:

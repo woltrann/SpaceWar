@@ -11,27 +11,9 @@ public class FirstCinematicScript : MonoBehaviour
     {
         Instance = this;
     }
-    void Start()
-    {
-        rawImageParent.SetActive(true);
 
-        videoPlayer.loopPointReached += OnVideoEnd;
-    }
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))  // Ekrana týklama
-        {
-            rawImageParent.SetActive(false);
-            videoPlayer.Stop();
-        }
-    }
 
-    
 
-    void OnVideoEnd(VideoPlayer vp)
-    {
-        rawImageParent.SetActive(false);
-    }
     public void NextScene()
     {
         SceneManager.LoadScene(1);    
