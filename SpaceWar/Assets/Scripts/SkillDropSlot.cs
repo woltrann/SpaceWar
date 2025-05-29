@@ -30,10 +30,16 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
 
     public float explosionRadiusSkill12 = 15f;
     public GameObject skill12VFX;
+    public Transform skillsParent; // Inspector'dan atanacak, skill objelerinin parent'ı
+    public int slotIndex; // Inspector'dan atanabilir
+
+
 
     void Awake()=>Instance = this;
     void Start()
     {
+        LoadSavedSkill();
+
         playerShip = GameObject.FindGameObjectWithTag("Player");
         shieldObject = playerShip.transform.Find("Sphere").gameObject;
         if (assignedSkillButton != null)
@@ -47,10 +53,58 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
                 cooldownSlider.value = cooldownTime; // Ba�ta dolu g�r�n�r
             }
 
-            assignedSkillButton.interactable = false; // Ba�ta bo� oldu�u i�in kapal�
+            //assignedSkillButton.interactable = false; // Ba�ta bo� oldu�u i�in kapal�
         }
     }
+    void LoadSavedSkill()
+    {
+        string savedSkillName = PlayerPrefs.GetString("SavedSkill_Slot" + slotIndex, "");
+        if (!string.IsNullOrEmpty(savedSkillName))
+        {
+            // Hierarchy'deki skill objesi (hepsi aynı parent altında olmalı)
+            Transform skillTransform = skillsParent.Find(savedSkillName);
+            if (skillTransform != null)
+            {
+                // Instantiate edip slot içine koy
+                GameObject skillClone = Instantiate(skillTransform.gameObject, transform);
+                skillClone.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 
+                Destroy(skillClone.GetComponent<SkillDragHandler>());
+                var group = skillClone.GetComponent<CanvasGroup>();
+                if (group != null)
+                    group.blocksRaycasts = true;
+
+                currentSkill = skillClone;
+
+                // Skill slot butonunu aktif et, görsel ayarla, listener ekle
+                if (assignedSkillButton != null)
+                {
+                    assignedSkillButton.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+                    SkillBUttonImage.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+                    assignedSkillButton.onClick.RemoveAllListeners();
+                    assignedSkillButton.onClick.AddListener(() => TryUseSkill(skillClone.name));
+                    assignedSkillButton.interactable = true;
+
+                    if (cooldownSlider != null)
+                    {
+                        cooldownSlider.maxValue = cooldownTime;
+                        cooldownSlider.value = cooldownTime;
+                    }
+                }
+
+                if (slotImage != null)
+                {
+                    Image skillImage = skillClone.GetComponent<Image>();
+                    if (skillImage != null)
+                    {
+                        slotImage.sprite = skillImage.sprite;
+                        slotImage.color = Color.white;
+                        assignedSkillButton.GetComponent<Image>().sprite = slotImage.sprite;
+                    }
+                }
+            }
+        }
+    }
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dropped = eventData.pointerDrag;
@@ -76,6 +130,11 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
                 group.blocksRaycasts = true;
 
             currentSkill = skillClone;
+            // currentSkill objesinin ismini kaydet (clone kısmını çıkar)
+            string skillName = skillClone.name.Replace("(Clone)", "");
+            PlayerPrefs.SetString("SavedSkill_Slot" + slotIndex, skillName);
+            PlayerPrefs.Save();
+
 
             // Skill slot butonunu aktif et
             if (assignedSkillButton != null)
