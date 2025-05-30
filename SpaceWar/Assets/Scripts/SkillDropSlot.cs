@@ -10,7 +10,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
     public Image slotImage; // G�rsel g�sterilecek alan (iste�e ba�l�)
     public Button assignedSkillButton; // Oyuncunun t�klay�p kullanaca�� buton
     public GameObject SkillBUttonImage;
-    public float cooldownTime = 5f;
+    public float cooldownTime;
     private Slider cooldownSlider;
     private bool isCoolingDown = false;
     public bool isDashing = false;
@@ -53,7 +53,6 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
                 cooldownSlider.value = cooldownTime; // Ba�ta dolu g�r�n�r
             }
 
-            //assignedSkillButton.interactable = false; // Ba�ta bo� oldu�u i�in kapal�
         }
     }
     void LoadSavedSkill()
@@ -200,39 +199,39 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
     {
         switch (skillName)
         {
-            case "Skill1(Clone)": DashForward(100f,0.35f);Debug.Log($"Skill kullanıldı: {skillName}"); break;
+            case "Skill1(Clone)": DashForward(100f,0.35f);Debug.Log($"Skill kullanıldı: {skillName}"); cooldownTime = 4f; cooldownSlider.maxValue = cooldownTime; break;
 
-            case "Skill2(Clone)": PlayerSmoothFollow.Instance.StartHealthRegenOverTime(); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
-
-
-            case "Skill3(Clone)": ActivateShield(3); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill2(Clone)": PlayerSmoothFollow.Instance.StartHealthRegenOverTime(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 5f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill4(Clone)": StartCoroutine(InvisibilityRoutine(4)); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill3(Clone)": ActivateShield(3); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 7f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill5(Clone)": SpawnPrefabBehindPlayer(); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill4(Clone)": StartCoroutine(InvisibilityRoutine(4)); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 8f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill6(Clone)": EnemeyBulletOff(3f); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill5(Clone)": SpawnPrefabBehindPlayer(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 12f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill7(Clone)": DropPrefabOnClosestEnemy(); Debug.Log($"Skill kullanıldı: {skillName}"); break;
+            case "Skill6(Clone)": EnemeyBulletOff(3f); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 10f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill8(Clone)": SpawnClone(); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill7(Clone)": DropPrefabOnClosestEnemy(); Debug.Log($"Skill kullanıldı: {skillName}"); cooldownTime = 15f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill9(Clone)": EnemeyMoveOff(3f); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill8(Clone)": SpawnClone(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 17f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill10(Clone)": PlayerSmoothFollow.Instance.UseSkill9(); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill9(Clone)": EnemeyMoveOff(3f); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 15f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill11(Clone)": ActivateSkill11(); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill10(Clone)": PlayerSmoothFollow.Instance.UseSkill9(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 20f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill12(Clone)": NuklearBomb(); Debug.Log($"Skill kullan�ld�: {skillName}"); break;
+            case "Skill11(Clone)": ActivateSkill11(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 20f; cooldownSlider.maxValue = cooldownTime; break;
+
+
+            case "Skill12(Clone)": NuklearBomb(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 20f; cooldownSlider.maxValue = cooldownTime; break;
 
 
             default: Debug.Log("Bo�"); break;
@@ -461,7 +460,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
                 Enemy enemy = hit.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(999999f);
+                    enemy.TakeDamage(PlayerSmoothFollow.Instance.damage * 10);
                 }
             }
         }

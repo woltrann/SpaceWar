@@ -142,6 +142,10 @@ MonoBehaviour:
     m_Localized: Open Chest
     m_Metadata:
       m_Items: []
+  - m_Id: 8579274190127104
+    m_Localized: LANGUAGE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -155,11 +155,11 @@ public class Enemy : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            TakeDamage(999f);
+            TakeDamage(100f);
         }
         if (other.CompareTag("ShieldArea"))
         {
-            TakeDamage(999f);
+            TakeDamage(100f);
         }
         if (other.CompareTag("Meteor"))
         {

@@ -2686,7 +2686,7 @@ MonoBehaviour:
   bulletSpeed: 10
   hitParticle: {fileID: 4929808257053317446, guid: d88dc120527f7c94696ed857091222a5, type: 3}
   attackRange: 60
-  maxHealth: 70
+  maxHealth: 200
   attackDamage: 20
   statMultiplier: 1
 --- !u!65 &-601929638348684778
