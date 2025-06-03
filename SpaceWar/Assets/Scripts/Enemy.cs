@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 
     public bool isBoss = false;
     public bool inBlackHole=false;
+
     public GameObject expPrefab;
     public int expAmount = 3;
     public GameObject goldPrefab;
@@ -36,24 +37,35 @@ public class Enemy : MonoBehaviour
         Instance = this;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        int mapIndex = MapManager.Instance.currentIndex + 1;
-        statMultiplier = Mathf.Pow(3f, mapIndex); // 3^0, 3^1, 3^2, ...
+        int selectedMapIndex = MapManager.Instance.currentIndex;
+        int usedMapIndex = MapManager.Instance.maps[selectedMapIndex].isUnlocked
+            ? selectedMapIndex
+            : MapManager.Instance.GetLastUnlockedMapIndex();
+
+        int mapLevel = usedMapIndex + 1; // çünkü 3^1, 3^2 gibi başlıyor
+        statMultiplier = Mathf.Pow(3f, mapLevel);
 
         maxHealth *= statMultiplier;
         currentHealth = maxHealth;
-        moveSpeed *= statMultiplier / statMultiplier;
-        bulletSpeed *= statMultiplier / statMultiplier;
         attackDamage = Mathf.RoundToInt(attackDamage * statMultiplier);
+
+        // Şu ikisi hep 1 oluyorsa gerek yok
+        moveSpeed *= 1f;
+        bulletSpeed *= 1f;
+
         statMultiplier = 0;
     }
+
+
 
     private void Update()
     {
         if (playerTransform == null) return;
-        if (SkillDropSlot.Instance.enemyMoveOff) return;
+        //if (SkillDropSlot.Instance.enemyMoveOff) return;
 
-        if (maxHealth > 0)
+        if (maxHealth > 0 && !PlayerSmoothFollow.Instance.enemyMoveOff)
         {
+
             //if(inBlackHole) return;
             Vector3 direction = (playerTransform.position - transform.position).normalized;
             transform.position += direction * moveSpeed * Time.deltaTime;

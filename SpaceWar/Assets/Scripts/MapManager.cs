@@ -57,19 +57,16 @@ public class MapManager : MonoBehaviour
         MapData currentMap = maps[currentIndex];
         mapNameText.text = currentMap.isUnlocked ? currentMap.mapName : "???";
         mapPreviewImage.sprite = currentMap.previewImage;        // Preview image her zaman gösterilir
-        Debug.Log("1");
      
         if (mapLockedOverlayImage != null)      // Eğer kilitliyse overlay aktif edilir
         {
             mapLockedOverlayImage.gameObject.SetActive(!currentMap.isUnlocked);
             mapLockedOverlayImage.sprite = currentMap.lockedImage;
-            Debug.Log("2");
         }
 
         if (groundRenderer != null && currentMap.isUnlocked && currentMap.mapMaterial != null)      // Yere materyali sadece açıksa uygula
         {
             groundRenderer.material = currentMap.mapMaterial;
-            Debug.Log("3");
         }
         if (currentMap.isUnlocked && currentMap.mapMaterial != null)
         {
@@ -154,6 +151,29 @@ public class MapManager : MonoBehaviour
 
         currentIndex = 0;
         UpdateUI();
+    }
+    public int GetValidMapIndex()
+    {
+        if (maps[currentIndex].isUnlocked)
+            return currentIndex;
+
+        // İlk açık haritayı bul
+        for (int i = 0; i < maps.Length; i++)
+        {
+            if (maps[i].isUnlocked)
+                return i;
+        }
+
+        return 0; // Hiçbiri açık değilse güvenli fallback
+    }
+    public int GetLastUnlockedMapIndex()
+    {
+        for (int i = maps.Length - 1; i >= 0; i--)
+        {
+            if (maps[i].isUnlocked)
+                return i;
+        }
+        return 0;
     }
 
 }

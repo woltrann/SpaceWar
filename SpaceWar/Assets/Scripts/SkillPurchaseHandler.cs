@@ -112,6 +112,12 @@ public class SkillPurchaseHandler : MonoBehaviour
         skillIcon.sprite = skillDetails.cardImage;
         skillPriceText.text = skillPrice + "G";
 
+        // Eski listener'larý kaldýr
+        BuyButton.onClick.RemoveAllListeners();
+
+        // Yeni listener ekle
+        BuyButton.onClick.AddListener(TryBuySkill);
+
         skillDetailsPanel.SetActive(true);
     }
 

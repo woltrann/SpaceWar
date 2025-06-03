@@ -103,7 +103,7 @@ public class EnemyWaveManager : MonoBehaviour
     {
         if (playerTransform != null)
         {
-            if (SkillDropSlot.Instance.enemyMoveOff) return;
+            if (PlayerSmoothFollow.Instance.enemyMoveOff) return;
 
             float angle = Random.Range(0f, 360f);   // 0 ile 360 derece arasýnda rastgele bir açý seç
             float radians = angle * Mathf.Deg2Rad;

@@ -16,7 +16,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
     public bool isDashing = false;
     public bool isInvisible = false;
     public bool enemyBulletOff = false;
-    public bool enemyMoveOff = false;
+    //public bool enemyMoveOff = false;
     public bool damageBoost = false;
 
 
@@ -225,7 +225,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
             case "Skill9(Clone)": EnemeyMoveOff(3f); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 15f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill10(Clone)": PlayerSmoothFollow.Instance.UseSkill9(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 20f; cooldownSlider.maxValue = cooldownTime; break;
+            case "Skill10(Clone)": PlayerSmoothFollow.Instance.UseSkill10(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 20f; cooldownSlider.maxValue = cooldownTime; break;
 
 
             case "Skill11(Clone)": ActivateSkill11(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 20f; cooldownSlider.maxValue = cooldownTime; break;
@@ -423,17 +423,17 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
 /// Enemy'in hareketini kapat (skill9)
     public void EnemeyMoveOff(float duration)
     {
-        enemyMoveOff = true;
+        PlayerSmoothFollow.Instance.enemyMoveOff = true;
         StartCoroutine(EnemyMoveOfff(duration));
     }
     private IEnumerator EnemyMoveOfff(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        enemyMoveOff = false;
+        PlayerSmoothFollow.Instance.enemyMoveOff = false;
     }
 
 
-/// Karadelik oluşturur (skill11)
+    /// Karadelik oluşturur (skill11)
     public void ActivateSkill11()
     {
         Vector3 flatForward = new Vector3(playerShip.transform.forward.x, 0f, playerShip.transform.forward.z).normalized;

@@ -35,6 +35,7 @@ public class PlayerSmoothFollow : MonoBehaviour
     private float moveSpeed;
     private float fireRate;
     private float nextFireTime = 0f;
+    private float MaxHealth;
     private float Health;
     private float shield;
     private Slider healthSlider;
@@ -49,6 +50,7 @@ public class PlayerSmoothFollow : MonoBehaviour
     private float lockOnTurnSpeed = 250f; // Düşmana kilitleninceki dönüş hızı
     private Transform nearestEnemy;
 
+    public bool enemyMoveOff = false;
 
 
     private void Awake()
@@ -57,6 +59,7 @@ public class PlayerSmoothFollow : MonoBehaviour
     }
     private void Start()
     {
+       
         player = GameObject.FindGameObjectWithTag("Player");
         planeReference = GameObject.FindGameObjectWithTag("Plane");
         GameObject initialPlane = GameObject.FindGameObjectWithTag("Plane");
@@ -72,6 +75,8 @@ public class PlayerSmoothFollow : MonoBehaviour
         runtimeStats = ScriptableObject.CreateInstance<ShipDetails>();
         DeletableStat();
         CalculateLimits();
+        MaxHealth = Health;
+
     }
     private void Update()
     {
@@ -170,20 +175,19 @@ public class PlayerSmoothFollow : MonoBehaviour
     private IEnumerator HealthRegenCoroutine()
     {
         int seconds = 5;
-        float regenAmountPerSecond = Health * 0.05f;
+        float regenAmountPerSecond = MaxHealth * 0.05f;
 
         for (int i = 0; i < seconds; i++)
         {
             Health += regenAmountPerSecond;
             Health = Mathf.Clamp(Health, 0, Health);
             healthSlider.value = Health;
-
             yield return new WaitForSeconds(1f);
         }
     }
 /// DamageBoost (skill10)
-    public void UseSkill9() => StartCoroutine(Skill9Coroutine());
-    public IEnumerator Skill9Coroutine()
+    public void UseSkill10() => StartCoroutine(Skill10Coroutine());
+    public IEnumerator Skill10Coroutine()
     {
         SkillDropSlot.Instance.damageBoost = true;
 

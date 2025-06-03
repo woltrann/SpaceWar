@@ -3160,10 +3160,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1303279135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.07789729, y: 0.4540548}
-  m_AnchorMax: {x: 0.49801373, y: 0.56734973}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
-  m_SizeDelta: {x: 0, y: -51.2365}
+  m_AnchorMin: {x: 0.18125108, y: 0.47106323}
+  m_AnchorMax: {x: 0.60136753, y: 0.55033493}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &262301206
 MonoBehaviour:
@@ -5877,7 +5877,6 @@ MonoBehaviour:
   isDashing: 0
   isInvisible: 0
   enemyBulletOff: 0
-  enemyMoveOff: 0
   damageBoost: 0
   skill5Prefab: {fileID: 4375147130832423729, guid: ff0ad36381878cf428dca972ad62479a, type: 3}
   skill7Prefab: {fileID: 2619654931598677742, guid: cb75c8798b7956b49ac4af02c9a5d605, type: 3}
@@ -7104,10 +7103,37 @@ MonoBehaviour:
   skillParentController: {fileID: 1875044334}
   chestID: 3
   hoursToUnlock: 24
+  skillSprites:
+  - {fileID: 21300000, guid: e66c3547aa5f3de4ca32cd3d9cbcf8d8, type: 3}
+  - {fileID: 21300000, guid: c56766c9ad9e1b04b81cdb89a8981b13, type: 3}
+  - {fileID: 21300000, guid: 5fe6813f817369c479763f58b8009438, type: 3}
+  - {fileID: 21300000, guid: b0c380ca8c8e02d41b440caa815ad3e6, type: 3}
+  - {fileID: 21300000, guid: 92a81c04e85cbeb4db19f03e92b0bd9c, type: 3}
+  - {fileID: 21300000, guid: c9f535a5993ca1846b6d2d9e4e171f2e, type: 3}
+  - {fileID: 21300000, guid: 663a3454d81157843bf6ce5a673d8ef0, type: 3}
+  - {fileID: 21300000, guid: 4612e1bbb3481a8489b547cb84a743f7, type: 3}
+  - {fileID: 21300000, guid: 67919bd4082931f419e3a0569f4942e7, type: 3}
+  - {fileID: 21300000, guid: 793b5a54dc6de1d4f899ed035db31c10, type: 3}
+  - {fileID: 21300000, guid: d0dbf05c0c3f2d44f9307b633abb6cf0, type: 3}
+  - {fileID: 21300000, guid: c6aa73c56439d4c4a94f18ee50e81847, type: 3}
+  skillNames:
+  - FlashLeap
+  - Regenerative Core
+  - Deflector Shield
+  - 'Stealth Cloak '
+  - AutoTurretDeploy
+  - EMPWave
+  - MeteorStrike
+  - MirrorIllusion
+  - Timelock
+  - OverdriveMode
+  - BlackHoleGranade
+  - NeutronBomb
   timerText: {fileID: 408944244}
   openChestButton: {fileID: 1855660403}
   ChestResultPanel: {fileID: 1303279134}
   ChestImage: {fileID: 582625641}
+  skillImageUI: {fileID: 1883074216}
   Reward: {fileID: 262301206}
 --- !u!114 &524472731
 MonoBehaviour:
@@ -7700,10 +7726,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1303279135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5546937, y: 0.43321982}
-  m_AnchorMax: {x: 0.8911142, y: 0.58817875}
+  m_AnchorMin: {x: 0.6187535, y: 0.44982377}
+  m_AnchorMax: {x: 0.85977423, y: 0.57157487}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.0000009536743, y: 0.000030517578}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582625643
 MonoBehaviour:
@@ -7725,7 +7751,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9ca2d3a411990c44c8c61baba44d915e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17398a43df66eff49b7130c43b3ea37a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8802,7 +8828,6 @@ MonoBehaviour:
   isDashing: 0
   isInvisible: 0
   enemyBulletOff: 0
-  enemyMoveOff: 0
   damageBoost: 0
   skill5Prefab: {fileID: 4375147130832423729, guid: ff0ad36381878cf428dca972ad62479a, type: 3}
   skill7Prefab: {fileID: 2619654931598677742, guid: cb75c8798b7956b49ac4af02c9a5d605, type: 3}
@@ -12110,10 +12135,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1303279135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5546937, y: 0.4332198}
-  m_AnchorMax: {x: 0.8911142, y: 0.58817875}
+  m_AnchorMin: {x: 0.6187535, y: 0.44982374}
+  m_AnchorMax: {x: 0.85977423, y: 0.57157487}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.0000009536743, y: -0.000030517578}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1056227079
 MonoBehaviour:
@@ -12135,7 +12160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 988a7c3ca1c7dc247831b4c7dc0a6475, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c772448ca903d148b2bbba743f2da06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13375,7 +13400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.41658, y: 0}
+  m_AnchoredPosition: {x: 0.41663, y: 0}
   m_SizeDelta: {x: 978, y: 1505.9275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154468966
@@ -15672,6 +15697,7 @@ RectTransform:
   - {fileID: 1056227078}
   - {fileID: 582625642}
   - {fileID: 262301205}
+  - {fileID: 1883074215}
   m_Father: {fileID: 935351068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -16652,10 +16678,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1303279135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5546937, y: 0.4332198}
-  m_AnchorMax: {x: 0.8911142, y: 0.5881788}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
-  m_SizeDelta: {x: 0.0000009536743, y: -0.000030517578}
+  m_AnchorMin: {x: 0.6187535, y: 0.44982377}
+  m_AnchorMax: {x: 0.85977423, y: 0.57157487}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361062122
 MonoBehaviour:
@@ -16677,7 +16703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5074013cc1733cd4f84e799feeaf6de9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54d58823b617f534083cee1deb4a8160, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19037,7 +19063,7 @@ MonoBehaviour:
       spawnSpeedUpRate: 0.1
     - enemyPrefab: {fileID: 8119849718256460265, guid: f22a94ccab47a7f4c89d4517b34449af, type: 3}
       startTime: 2
-      initialSpawnInterval: 200
+      initialSpawnInterval: 9999
       minSpawnInterval: 199
       spawnSpeedUpRate: 0.1
   - level: 6
@@ -19122,7 +19148,7 @@ MonoBehaviour:
     enemies:
     - enemyPrefab: {fileID: 9192391136679669188, guid: 4254b5e3d3d3b114a932324e22fb4cb9, type: 3}
       startTime: 2
-      initialSpawnInterval: 900
+      initialSpawnInterval: 9999
       minSpawnInterval: 1
       spawnSpeedUpRate: 0.1
   playerTransform: {fileID: 0}
@@ -20161,10 +20187,37 @@ MonoBehaviour:
   skillParentController: {fileID: 1875044334}
   chestID: 2
   hoursToUnlock: 8
+  skillSprites:
+  - {fileID: 21300000, guid: e66c3547aa5f3de4ca32cd3d9cbcf8d8, type: 3}
+  - {fileID: 21300000, guid: c56766c9ad9e1b04b81cdb89a8981b13, type: 3}
+  - {fileID: 21300000, guid: 5fe6813f817369c479763f58b8009438, type: 3}
+  - {fileID: 21300000, guid: b0c380ca8c8e02d41b440caa815ad3e6, type: 3}
+  - {fileID: 21300000, guid: 92a81c04e85cbeb4db19f03e92b0bd9c, type: 3}
+  - {fileID: 21300000, guid: c9f535a5993ca1846b6d2d9e4e171f2e, type: 3}
+  - {fileID: 21300000, guid: 663a3454d81157843bf6ce5a673d8ef0, type: 3}
+  - {fileID: 21300000, guid: 4612e1bbb3481a8489b547cb84a743f7, type: 3}
+  - {fileID: 21300000, guid: 67919bd4082931f419e3a0569f4942e7, type: 3}
+  - {fileID: 21300000, guid: 793b5a54dc6de1d4f899ed035db31c10, type: 3}
+  - {fileID: 21300000, guid: d0dbf05c0c3f2d44f9307b633abb6cf0, type: 3}
+  - {fileID: 21300000, guid: c6aa73c56439d4c4a94f18ee50e81847, type: 3}
+  skillNames:
+  - FlashLeap
+  - Regenerative Core
+  - Deflector Shield
+  - 'Stealth Cloak '
+  - AutoTurretDeploy
+  - EMPWave
+  - MeteorStrike
+  - MirrorIllusion
+  - Timelock
+  - OverdriveMode
+  - BlackHoleGranade
+  - NeutronBomb
   timerText: {fileID: 2064960919}
   openChestButton: {fileID: 166274471}
   ChestResultPanel: {fileID: 1303279134}
   ChestImage: {fileID: 1056227077}
+  skillImageUI: {fileID: 1883074216}
   Reward: {fileID: 262301206}
 --- !u!114 &1708438405
 MonoBehaviour:
@@ -22020,10 +22073,37 @@ MonoBehaviour:
   skillParentController: {fileID: 1875044334}
   chestID: 1
   hoursToUnlock: 4
+  skillSprites:
+  - {fileID: 21300000, guid: e66c3547aa5f3de4ca32cd3d9cbcf8d8, type: 3}
+  - {fileID: 21300000, guid: c56766c9ad9e1b04b81cdb89a8981b13, type: 3}
+  - {fileID: 21300000, guid: 5fe6813f817369c479763f58b8009438, type: 3}
+  - {fileID: 21300000, guid: b0c380ca8c8e02d41b440caa815ad3e6, type: 3}
+  - {fileID: 21300000, guid: 92a81c04e85cbeb4db19f03e92b0bd9c, type: 3}
+  - {fileID: 21300000, guid: c9f535a5993ca1846b6d2d9e4e171f2e, type: 3}
+  - {fileID: 21300000, guid: 663a3454d81157843bf6ce5a673d8ef0, type: 3}
+  - {fileID: 21300000, guid: 4612e1bbb3481a8489b547cb84a743f7, type: 3}
+  - {fileID: 21300000, guid: 67919bd4082931f419e3a0569f4942e7, type: 3}
+  - {fileID: 21300000, guid: 793b5a54dc6de1d4f899ed035db31c10, type: 3}
+  - {fileID: 21300000, guid: d0dbf05c0c3f2d44f9307b633abb6cf0, type: 3}
+  - {fileID: 21300000, guid: c6aa73c56439d4c4a94f18ee50e81847, type: 3}
+  skillNames:
+  - FlashLeap
+  - Regenerative Core
+  - Deflector Shield
+  - 'Stealth Cloak '
+  - AutoTurretDeploy
+  - EMPWave
+  - MeteorStrike
+  - MirrorIllusion
+  - Timelock
+  - OverdriveMode
+  - BlackHoleGranade
+  - NeutronBomb
   timerText: {fileID: 1339940890}
   openChestButton: {fileID: 1216390976}
   ChestResultPanel: {fileID: 1303279134}
   ChestImage: {fileID: 1361062120}
+  skillImageUI: {fileID: 1883074216}
   Reward: {fileID: 262301206}
 --- !u!1 &1826850720
 GameObject:
@@ -22121,7 +22201,6 @@ MonoBehaviour:
   isDashing: 0
   isInvisible: 0
   enemyBulletOff: 0
-  enemyMoveOff: 0
   damageBoost: 0
   skill5Prefab: {fileID: 4375147130832423729, guid: ff0ad36381878cf428dca972ad62479a, type: 3}
   skill7Prefab: {fileID: 2619654931598677742, guid: cb75c8798b7956b49ac4af02c9a5d605, type: 3}
@@ -22501,6 +22580,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877699866}
+  m_CullTransparentMesh: 1
+--- !u!1 &1883074214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883074215}
+  - component: {fileID: 1883074217}
+  - component: {fileID: 1883074216}
+  m_Layer: 5
+  m_Name: C3 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1883074215
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883074214}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1303279135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.06237219, y: 0.47749692}
+  m_AnchorMax: {x: 0.16462168, y: 0.5439012}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1883074216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883074214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1883074217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883074214}
   m_CullTransparentMesh: 1
 --- !u!1 &1890754852
 GameObject:
@@ -25796,7 +25950,7 @@ MonoBehaviour:
   skillDetailsPanel: {fileID: 817407977}
   skillIndex: 0
   isUnlocked: 0
-  skillPrice: 20000
+  skillPrice: 25000
   skillDragHandler: {fileID: 4029628883383308239}
 --- !u!222 &1075877148651284268
 CanvasRenderer:

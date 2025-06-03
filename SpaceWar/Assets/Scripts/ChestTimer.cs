@@ -15,11 +15,14 @@ public class ChestTimer : MonoBehaviour
     public float hoursToUnlock = 4;
 
     [Header("UI")]
+    public Sprite[] skillSprites; // skillSprites[0] = Skill1, skillSprites[1] = Skill2, ...
+    public String[] skillNames = { "FlashLeap", "Regenerative Core", "Deflector Shield", "Stealth Cloak ", "AutoTurretDeploy", "EMPWave", "MeteorStrike", "MirrorIllusion", "Timelock", "OverdriveMode", "BlackHoleGranade", "NeutronBomb" };
     public Text timerText;
     public Button openChestButton;
     public GameObject ChestResultPanel;
  
     public GameObject ChestImage;
+    public Image skillImageUI;
     public Text Reward;
 
     private string chestKey;
@@ -85,25 +88,25 @@ public class ChestTimer : MonoBehaviour
             else if (randomValue < 83)
             {
                 int skillIndex = Random.Range(1, 4);
-                rewardMessage = $"Skill{skillIndex}.";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else if (randomValue < 93)
             {
                 int skillIndex = Random.Range(4, 7);
-                rewardMessage = $"Skill{skillIndex}.";
+                rewardMessage = skillNames[skillIndex-1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else if (randomValue < 98)
             {
                 int skillIndex = Random.Range(7, 10);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else
             {
                 int skillIndex = Random.Range(10, 13);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
 
@@ -121,25 +124,25 @@ public class ChestTimer : MonoBehaviour
             else if (randomValue < 74)
             {
                 int skillIndex = Random.Range(1, 4);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else if (randomValue < 87)
             {
                 int skillIndex = Random.Range(4, 7);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else if (randomValue < 95)
             {
                 int skillIndex = Random.Range(7, 10);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else
             {
                 int skillIndex = Random.Range(10, 13);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
         }
@@ -156,25 +159,25 @@ public class ChestTimer : MonoBehaviour
             else if (randomValue < 65)
             {
                 int skillIndex = Random.Range(1, 4);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else if (randomValue < 81)
             {
                 int skillIndex = Random.Range(4, 7);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else if (randomValue < 92)
             {
                 int skillIndex = Random.Range(7, 10);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
             else
             {
                 int skillIndex = Random.Range(10, 13);
-                rewardMessage = $"Skill{skillIndex} .";
+                rewardMessage = skillNames[skillIndex - 1];
                 TrySkills(skillIndex, rewardMessage);
             }
         }
@@ -197,6 +200,8 @@ public class ChestTimer : MonoBehaviour
     {
         ChestResultPanel.SetActive(false);
         ChestImage.SetActive(false);
+        skillImageUI.gameObject.SetActive(false);
+
     }
     public void TrySkills(int skillIndex, string rewardMessage)
     {
@@ -208,7 +213,10 @@ public class ChestTimer : MonoBehaviour
             GameManager.Instance.totalGold += goldAmount;
             GameManager.Instance.TotalGoldText.text = GameManager.Instance.totalGold.ToString();
             PlayerPrefs.SetFloat("TotalGold", GameManager.Instance.totalGold);
-            Reward.text =  $"+ {goldAmount} Gg";
+            Reward.text = $"+ {goldAmount} G";
+
+            skillImageUI.gameObject.SetActive(false); // skill zaten varsa görseli kapat
+
         }
         else
         {
@@ -216,10 +224,17 @@ public class ChestTimer : MonoBehaviour
             PlayerPrefs.SetInt("SkillUnlocked_" + skillIndex, 1);
             PlayerPrefs.Save();
             PlayerPrefs.GetInt("SkillUnlocked_" + skillIndex, 0);
-            
+
             Reward.text = rewardMessage;
             Debug.Log("Skill açýlýyor: SkillUnlocked_" + skillIndex + " = " + PlayerPrefs.GetInt("SkillUnlocked_" + skillIndex));
             skillParentController.UnlockSkillByID(skillIndex);
+
+            if (skillIndex - 1 < skillSprites.Length && skillIndex > 0)
+            {
+                skillImageUI.sprite = skillSprites[skillIndex - 1];
+                skillImageUI.gameObject.SetActive(true);
+            }
         }
+
     }
 }
