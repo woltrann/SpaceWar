@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5591251973075681237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: -5611515837578546915}
   - component: {fileID: -5918624610991295614}
   - component: {fileID: -1053649836682540897}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StarSparrow3
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -194,6 +194,7 @@ MonoBehaviour:
   damage: 0
   hitParticle: {fileID: 4929808257053317446, guid: 2ad7ec8bfd5899c43ab80149182f3139, type: 3}
   joystick: {fileID: 0}
+  enemyMoveOff: 0
 --- !u!82 &-1053649836682540897
 AudioSource:
   m_ObjectHideFlags: 0
@@ -302,7 +303,7 @@ GameObject:
   - component: {fileID: 9112891421156740700}
   - component: {fileID: 5119056505830203225}
   - component: {fileID: 7126973955088107874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +425,7 @@ GameObject:
   - component: {fileID: 3156962933985729018}
   - component: {fileID: 2500217211829023827}
   - component: {fileID: 7003330937161766196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: ShieldArea
   m_Icon: {fileID: 0}

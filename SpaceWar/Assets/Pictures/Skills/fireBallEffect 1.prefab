@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5531230585411470915}
   - component: {fileID: 5224583970162027076}
   - component: {fileID: 4876083466251618875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fireBallAirMeshLayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4455897198661852795}
   - component: {fileID: 8459262302309254045}
   - component: {fileID: 2816809153878447519}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fireBallAirMeshLayer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 7512561367098379828}
   - component: {fileID: 5141722874186230278}
   - component: {fileID: 3363799718147046538}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fireBallEffect 1
   m_TagString: Meteor
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 2697674343312490009}
   - component: {fileID: 617269036707739021}
   - component: {fileID: 4223878138060257333}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345633482960224557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fireBallEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -80,6 +80,11 @@ public class PlayerSmoothFollow : MonoBehaviour
     }
     private void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null) return; // Hâlâ yoksa fonksiyondan çık
+        }
         moveSpeed = runtimeStats.moveSpeed;
         damage = runtimeStats.attackPower;
         Move();

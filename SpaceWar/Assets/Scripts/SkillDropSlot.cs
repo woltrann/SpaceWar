@@ -1,10 +1,13 @@
 using System.Collections;
+using UnityEditor.Localization.Platform.Android;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SkillDropSlot : MonoBehaviour, IDropHandler
 {
+    [SerializeField] private GameObject[] clonePrefabs; // Sırası: 0 - StarSparrow1, 1 - StarSparrow2, ...
+
     public static SkillDropSlot Instance;
     public SkillDetails skillData;
     public Image slotImage; // G�rsel g�sterilecek alan (iste�e ba�l�)
@@ -53,6 +56,14 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
                 cooldownSlider.value = cooldownTime; // Ba�ta dolu g�r�n�r
             }
 
+        }
+    }
+    void Update()
+    {
+        if (playerShip == null)
+        {
+            playerShip = GameObject.FindGameObjectWithTag("Player");
+            if (playerShip == null) return; // Hâlâ yoksa fonksiyondan çık
         }
     }
     void LoadSavedSkill()
@@ -210,7 +221,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
             case "Skill4(Clone)": StartCoroutine(InvisibilityRoutine(4)); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 8f; cooldownSlider.maxValue = cooldownTime; break;
 
 
-            case "Skill5(Clone)": SpawnPrefabBehindPlayer(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 12f; cooldownSlider.maxValue = cooldownTime; break;
+            case "Skill5(Clone)": SpawnPrefabBehindPlayer(); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 14f; cooldownSlider.maxValue = cooldownTime; break;
 
 
             case "Skill6(Clone)": EnemeyBulletOff(3f); Debug.Log($"Skill kullan�ld�: {skillName}"); cooldownTime = 10f; cooldownSlider.maxValue = cooldownTime; break;
@@ -410,15 +421,32 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
             return;
         }
 
-        // Sadece yatay düzlemde oyuncunun arkası
+        string originalName = playerShip.name.Replace("(Clone)", "").Trim();
+
+        GameObject selectedPrefab = null;
+
+        foreach (GameObject prefab in clonePrefabs)
+        {
+            if (prefab != null && prefab.name == originalName)
+            {
+                selectedPrefab = prefab;
+                break;
+            }
+        }
+
+        if (selectedPrefab == null)
+        {
+            Debug.LogWarning($"'{originalName}' ismine sahip bir prefab bulunamadı!");
+            return;
+        }
+
         Vector3 flatForward = new Vector3(playerShip.transform.forward.x, 0f, playerShip.transform.forward.z).normalized;
-
-        // Konumu hesapla
         Vector3 spawnPos = playerShip.transform.position - flatForward * 2f;
-        spawnPos.y = playerShip.transform.position.y; // Yüksekliği aynı yap
+        spawnPos.y = playerShip.transform.position.y;
 
-        Instantiate(skill8Prefab, spawnPos, Quaternion.identity);
+        Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
     }
+
 
 /// Enemy'in hareketini kapat (skill9)
     public void EnemeyMoveOff(float duration)
@@ -433,7 +461,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
     }
 
 
-    /// Karadelik oluşturur (skill11)
+/// Karadelik oluşturur (skill11)
     public void ActivateSkill11()
     {
         Vector3 flatForward = new Vector3(playerShip.transform.forward.x, 0f, playerShip.transform.forward.z).normalized;
@@ -442,7 +470,7 @@ public class SkillDropSlot : MonoBehaviour, IDropHandler
         GameObject pullField = Instantiate(skill11Prefab, spawnPosition, Quaternion.identity);
     }
 
-    /// Nükleer Patlama (skill12)
+/// Nükleer Patlama (skill12)
     public void NuklearBomb()
     {
         // Patlama efekti varsa göster

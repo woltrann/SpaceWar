@@ -62,6 +62,7 @@ public class Enemy : MonoBehaviour
     {
         if (playerTransform == null) return;
         //if (SkillDropSlot.Instance.enemyMoveOff) return;
+        if (SkillDropSlot.Instance.isInvisible) return;
 
         if (maxHealth > 0 && !PlayerSmoothFollow.Instance.enemyMoveOff)
         {
